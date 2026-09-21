@@ -1,0 +1,41 @@
+---
+name: CI
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-verify:
+    name: Hermetic PDF/UA-1 build + accessibility & font verification
+    runs-on: ubuntu-latest
+    env:
+      TYPST_VERSION: "0.15.0"
+    steps:
+      # checkout v4.2.2, pinned by commit SHA.
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Install poppler (pdffonts) and PyMuPDF (tag-tree inspection)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq poppler-utils >/dev/null
+          python3 -m pip install --quiet pymupdf
+
+      - name: Install Typst CLI
+        run: |
+          curl -sSL -o typst.tar.gz \
+            "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.gz"
+          tar -xzf typst.tar.gz
+          mkdir -p "$HOME/.local/bin"
+          cp typst-x86_64-unknown-linux-musl/typst "$HOME/.local/bin/typst"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          typst --version
+
+      - name: Build main CV (hermetic fonts, PDF/UA-1) and verify
+        run: ./build.sh
+
+      - name: Build all 24 language examples (PDF/UA-1)
+        run: ./build-examples.sh "${RUNNER_TEMP}/examples-pdf"
