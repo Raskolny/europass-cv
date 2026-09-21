@@ -55,6 +55,15 @@ copied from the distribution package `open-sans-fonts`; no modification was
 made.  If you redistribute this repository you must keep this README and the
 license file together with the `.ttf` files.
 
+## Repository-only vendoring (Typst Universe policy)
+
+These binaries are vendored **for this repository only**, so that repository
+builds are hermetic and reproducible (`--ignore-system-fonts --font-path
+fonts`).  Typst Universe policy forbids shipping font binaries inside a
+package, therefore the published Universe bundle excludes this directory and
+instead instructs users to install Open Sans themselves (see the README
+"Fonts & reproducibility" section) or to pass the `font:` parameter.
+
 ## Regenerating
 
 If you ever need to refresh the family, copy the same six styles from an

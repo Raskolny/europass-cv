@@ -10,11 +10,19 @@
 #                            ./fonts, so the output is byte-for-byte
 #                            reproducible on any machine.
 #    --font-path fonts       point Typst at the vendored family.
+#    --package-path          resolve the in-repo `@preview/rasko-europass`
+#                            import from a local cache that mirrors the
+#                            Universe bundle (see below).
 #    --pdf-standard 1.7,ua-1 enforce PDF/UA-1 (ISO 14289-1) accessibility
 #                            conformance at compile time.  Typst *fails the
 #                            build* if the document would not be accessible
 #                            (missing title, missing language, missing
 #                            outline, untagged images, ...).
+#
+#  NOTE ON FONTS: ./fonts is vendored for reproducible *repository* builds.
+#  Typst Universe policy forbids shipping font binaries inside a package, so
+#  the package cache (and the published bundle) deliberately excludes them;
+#  Universe users install Open Sans themselves or pass `font:`.
 #
 #  Usage:  ./build.sh [output.pdf]
 # =============================================================================
@@ -28,11 +36,21 @@ if ! command -v typst >/dev/null 2>&1; then
   exit 1
 fi
 
+# Materialise a local package cache mirroring the Universe bundle so that
+# main.typ's `@preview/rasko-europass:1.0.0` import resolves in-repo.
+CACHE=".pkgcache/preview/rasko-europass/1.0.0"
+rm -rf .pkgcache
+mkdir -p "$CACHE"
+for f in lib.typ lang.toml typst.toml README.md LICENSE NOTICE.md thumbnail.png assets examples main.typ; do
+  cp -r "$f" "$CACHE"/
+done
+
 echo "==> Compiling main.typ -> $OUT  (hermetic fonts + PDF/UA-1)"
 typst compile \
   --pdf-standard 1.7,ua-1 \
   --ignore-system-fonts \
   --font-path fonts \
+  --package-path .pkgcache \
   main.typ "$OUT"
 
 echo "==> Verifying accessibility + font embedding"

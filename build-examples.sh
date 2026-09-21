@@ -2,9 +2,14 @@
 # =============================================================================
 #  build-examples.sh — compile every examples/<lang>.typ to PDF
 # =============================================================================
-#  Examples live in examples/ but import the package entrypoint one level up,
-#  so the project root MUST be the repository root (`--root .`); otherwise
-#  Typst treats examples/ as the root and "../lib.typ" escapes it.
+#  Examples import the package through its Universe specification
+#  (`@preview/rasko-europass:1.0.0`), exactly as end users will.  To compile
+#  them from this repository before publication, we materialise a local
+#  package cache mirroring the Universe bundle and point Typst at it with
+#  --package-path.
+#
+#  The project root MUST be the repository root (`--root .`) so that paths
+#  inside the package cache resolve correctly.
 #
 #  Usage:  ./build-examples.sh [outdir]
 # =============================================================================
@@ -14,6 +19,15 @@ cd "$(dirname "$0")"
 OUT="${1:-examples/pdf}"
 mkdir -p "$OUT"
 
+# Local package cache mirroring the Universe bundle (no fonts: Universe
+# policy forbids shipping font binaries in a package).
+CACHE=".pkgcache/preview/rasko-europass/1.0.0"
+rm -rf .pkgcache
+mkdir -p "$CACHE"
+for f in lib.typ lang.toml typst.toml README.md LICENSE NOTICE.md thumbnail.png assets examples main.typ; do
+  cp -r "$f" "$CACHE"/
+done
+
 ok=0; fail=0
 for f in examples/*.typ; do
   c=$(basename "$f" .typ)
@@ -21,6 +35,7 @@ for f in examples/*.typ; do
        --pdf-standard 1.7,ua-1 \
        --ignore-system-fonts \
        --font-path fonts \
+       --package-path .pkgcache \
        --root . \
        "$f" "$OUT/$c.pdf"; then
     ok=$((ok+1))
