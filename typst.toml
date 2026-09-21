@@ -1,5 +1,5 @@
 [package]
-name = "europass-cv"
+name = "rasko-europass"
 version = "1.0.0"
 entrypoint = "lib.typ"
 thumbnail = "thumbnail.png"

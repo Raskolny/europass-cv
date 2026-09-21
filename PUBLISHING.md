@@ -21,13 +21,13 @@ the link later forces a pointless `1.0.1` bump.
 2. Push this tree (build outputs are gitignored; do not commit
    `output.pdf` or `examples/pdf/`).
 3. Confirm the CI workflow is green on the default branch.
-4. Tag the release: `git tag -a v1.0.0 -m "europass-cv 1.0.0" && git push origin v1.0.0`.
+4. Tag the release: `git tag -a v1.0.0 -m "rasko-europass 1.0.0" && git push origin v1.0.0`.
    The Universe version **must** correspond to this tag.
 
 ## 2. Typst Universe second
 
 1. Fork <https://github.com/typst/packages>.
-2. Add the package at `packages/preview/europass-cv/1.0.0/`, copying the
+2. Add the package at `packages/preview/rasko-europass/1.0.0/`, copying the
    repository contents **minus** the globs in `typst.toml`'s `exclude`
    (`output.pdf`, `build.sh`, `build-examples.sh`, `verify.sh`,
    `examples/pdf`).  Do **not** exclude `README.md` or `LICENSE`.
@@ -44,5 +44,5 @@ the link later forces a pointless `1.0.1` bump.
 - Future releases: bump `version` in `typst.toml` per SemVer, add a
   `CHANGELOG.md` entry, tag `vX.Y.Z`, then submit the new version folder.
   Never edit an already-published version.
-- The README already imports `@preview/europass-cv:1.0.0`; bump that snippet
+- The README already imports `@preview/rasko-europass:1.0.0`; bump that snippet
   only when a new major is released.

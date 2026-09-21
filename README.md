@@ -1,4 +1,8 @@
-# europass-cv
+# rasko-europass
+
+Published on Typst Universe as `rasko-europass`; the template function you
+call is `europass-cv`.  The development repository keeps the descriptive name
+`europass-cv`.
 
 [![CI](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
 
@@ -25,7 +29,7 @@ A faithful, **accessible** reproduction of the official European Union
 ### From Typst Universe
 
 ```typst
-#import "@preview/europass-cv:1.0.0": europass-cv, cv-entry
+#import "@preview/rasko-europass:1.0.0": europass-cv, cv-entry
 
 #show: europass-cv.with(lang: "en", name: "Your Name")
 ```

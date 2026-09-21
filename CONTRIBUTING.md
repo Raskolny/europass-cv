@@ -1,6 +1,7 @@
 # Contributing
 
-Thanks for helping improve `europass-cv`!  This document covers the development
+Thanks for helping improve the europass-cv project (published on Typst Universe
+as `rasko-europass`)!  This document covers the development
 setup and the conventions that keep the package accessible and reproducible.
 
 ## Development setup
