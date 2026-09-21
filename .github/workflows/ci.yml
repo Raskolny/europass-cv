@@ -22,13 +22,15 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq poppler-utils >/dev/null
-          python3 -m pip install --quiet pymupdf
+          python3 -m pip install --quiet --user --break-system-packages pymupdf
 
       - name: Install Typst CLI
         run: |
-          curl -sSL -o typst.tar.gz \
-            "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.gz"
-          tar -xzf typst.tar.gz
+          # NOTE: Typst release assets are .tar.xz (not .tar.gz); curl -f makes
+          # a wrong URL fail loudly instead of downloading a 404 body.
+          curl -fsSL -o typst.tar.xz \
+            "https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz"
+          tar -xJf typst.tar.xz
           mkdir -p "$HOME/.local/bin"
           cp typst-x86_64-unknown-linux-musl/typst "$HOME/.local/bin/typst"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
