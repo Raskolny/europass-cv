@@ -43,7 +43,19 @@ the link later forces a pointless `1.0.1` bump.
    (Apache-2.0, documented in `fonts/README.md`), the thumbnail, the README
    `@preview` usage snippet, and that the compiler floor (`0.15.0`) is correct.
 
-## 3. After publication
+## 3. Web-only polish (GitHub UI; no API exists for these)
+
+- **Topics** (already applied via `PUT /repos/{owner}/{repo}/topics`):
+  `typst, typst-template, typst-package, cv, resume, curriculum-vitae, europass,
+  pdf-ua, accessibility, i18n`.
+- **Social preview**: GitHub has no REST endpoint for the Open-Graph preview
+  image, so it must be uploaded in the UI:
+  *Settings → Social preview → upload `social-preview.png`* (1280×640, <1 MB,
+  generated from `thumbnail.png` with the vendored Open Sans).  Do not upload
+  `thumbnail.png` itself: it is A4 portrait and would crop badly in the 2:1
+  slot.
+
+## 4. After publication
 
 - Future releases: bump `version` in `typst.toml` per SemVer, add a
   `CHANGELOG.md` entry, tag `vX.Y.Z`, then submit the new version folder.
