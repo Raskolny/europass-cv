@@ -376,6 +376,7 @@
   declaration: true, // set false to omit the legal clause
   signature-place: "",
   signature-date: "",
+  signature-image: none, // e.g. "signature.png"; none draws a line
 
   // ── Optional extra content ────────────────────────────────────────────────
   // MUST stay a required *positional* parameter with no default: that is what
@@ -574,9 +575,13 @@
           #if signature-date != "" [#t.at("date"): #signature-date]
         ],
       )
-      v(16pt)
+      v(8pt)
       block(width: 55mm)[
-        #line(length: 100%, stroke: 0.5pt + eu-gray)
+        #if signature-image != none {
+          image(signature-image, width: 40mm)
+        } else {
+          line(length: 100%, stroke: 0.5pt + eu-gray)
+        }
         #v(2pt)
         #text(fill: eu-gray, size: small-size)[#t.at("signature")]
       ]
