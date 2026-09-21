@@ -238,8 +238,9 @@ typst.toml            Typst Universe package manifest
 
 ## License
 
-Template code: **MIT** (see `LICENSE`).
-Bundled fonts: **Apache-2.0** (see `fonts/LICENSE-OpenSans-Apache2.txt`).
+- Template code, examples, docs and scripts: **MIT** (see `LICENSE`).
+- Bundled Open Sans fonts: **Apache-2.0** (see `fonts/LICENSE-OpenSans-Apache2.txt`).
+- Combined licensing statement: see `NOTICE.md`.
 
 ## Author
 

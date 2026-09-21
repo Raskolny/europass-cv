@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Europass Typst contributors
+Copyright (c) 2025 Massimiliano Milani
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE ON BUNDLED FONTS
-
-The `.ttf` files under `fonts/` are NOT covered by this MIT license.  They are
-the Open Sans typeface, licensed under the Apache License, Version 2.0; see
-`fonts/LICENSE-OpenSans-Apache2.txt` and `fonts/README.md`.  All other files in
-this repository are MIT-licensed as above.
