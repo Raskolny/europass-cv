@@ -4,6 +4,28 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+Nothing released since `1.0.0`.  That version is submitted to Typst Universe as
+[typst/packages#5905](https://github.com/typst/packages/pull/5905) and is
+**frozen** — no further changes go into it.  Everything below lands in `1.1.0`.
+
+Work in progress lives on feature branches off `main`:
+
+- `feat/signature-image` — optional `signature-image:` rendering an uploaded
+  handwritten signature in place of the placeholder rule.  **Incomplete**: the
+  commit message records the blocking issues (a missing `alt:` fails the
+  PDF/UA-1 build; the example-asset strategy is undecided).
+
+Planned, pending
+[discussion #2](https://github.com/Raskolny/europass-cv/discussions/2):
+`extra-fields:` for country-specific personal information, and an exported
+`cv-section(..)` for user-defined trailing sections.
+
+Also planned: section-title spacing, and richer PDF metadata (exposing
+`keywords` / `description`, optionally outlining H3 entry titles for nested
+bookmarks).
+
 ## [1.0.0] — initial release
 
 ### Added
