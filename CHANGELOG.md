@@ -44,12 +44,14 @@ reachable through the immutable `v1.0.0` tag.
   before and after.  typstyle 0.15.1 has no config file, so the pinned version
   plus its default flags (line width 80, indent 2) are the whole contract.
 - **Section-title spacing** — each `H2` section heading now clears the section
-  before it by `section-gap` (8pt), and its blue rule sits 3pt below the title
-  instead of 1pt, matching the official Europass rhythm.  The previously
-  orphaned `section-gap` constant is now wired up.  The gap is real content
-  space (`v()`), not a block margin, because Typst silently drops the top
-  margin of the first element inside a grid cell.  Measured on the rendered
-  PDF: previous-section→title +8pt, title→rule +2pt, rule→content unchanged.
+  before it by `section-gap + 3.4mm`, while its blue rule is pulled 3.4mm
+  closer to the title, so the rule reads as part of the heading and the
+  heading reads as the start of a new block.  The previously orphaned
+  `section-gap` constant is wired up.  Both gaps are real content space
+  (`v()`), not block margins, because Typst silently drops the top margin of
+  the first element inside a grid cell.  Measured on the rendered PDF against
+  `1.0.0`: previous-section→title 7.03→24.67pt, title→rule 11.56→3.92pt,
+  rule→content unchanged.
 
 ### Planned
 
