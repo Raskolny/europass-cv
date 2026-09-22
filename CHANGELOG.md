@@ -52,6 +52,15 @@ reachable through the immutable `v1.0.0` tag.
   deliberately negative `v()`.  Measured on the rendered PDF against `1.0.0`:
   previous-section→title 7.03→15.03pt, title→rule 11.56→3.92pt, rule→content
   unchanged.
+- **Housekeeping / doc coherence** — `thumbnail.png` regenerated for the new
+  spacing and `social-preview.png` regenerated from it through a new
+  *versioned* generator, `social-preview.typ` (the card was previously composed
+  ad hoc, so it could not be reproduced); `social-preview.typ` is excluded from
+  the Universe bundle.  The `typst.toml` comment that claimed the vendored
+  fonts "ship with the package" — contradicting their presence in `exclude` —
+  is corrected.  README and CONTRIBUTING no longer claim every example carries
+  the placeholder portrait: lean-CV countries omit it, keeping the parameter as
+  a commented-out instruction.
 
 ### Planned
 

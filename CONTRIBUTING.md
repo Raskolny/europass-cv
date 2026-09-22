@@ -43,8 +43,8 @@ formatter over any PR on request.
 To check or apply locally, exactly as CI does:
 
 ```bash
-typstyle --check lib.typ main.typ examples/*.typ   # CI's gate
-typstyle -i      lib.typ main.typ examples/*.typ   # apply in place
+typstyle --check lib.typ main.typ social-preview.typ examples/*.typ   # CI's gate
+typstyle -i      lib.typ main.typ social-preview.typ examples/*.typ   # apply in place
 ```
 
 ## Adding or fixing a language
@@ -56,7 +56,10 @@ All translations live in **`lang.toml`** — do not add strings to `lib.typ`.
    personal-info labels, CEFR labels, `levels`, gender values, `photo-alt`,
    `signature-alt`, `declaration`, …).
 2. Add a matching example `examples/<code>.typ` with a persona of that
-   nationality, using the anonymous placeholder photo.
+   nationality.  Follow that country's conventions (see discussion #3 and the
+   per-example comments): lean-CV countries omit the photo, keeping the
+   parameter as a commented-out instruction; the others use the anonymous
+   placeholder photo so no real person is depicted.
 3. Run `./build.sh` and `./build-examples.sh`; both must pass.  The build is
    PDF/UA-1-strict, so a missing translation or an untagged element fails CI.
 

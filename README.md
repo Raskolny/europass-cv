@@ -203,8 +203,11 @@ persona of the matching nationality (e.g. `examples/bg.typ` → Георги И�
 ./build-examples.sh          # compiles all 24 to examples/pdf/ (PDF/UA-1)
 ```
 
-Every example uses the same anonymous, gender-neutral placeholder portrait
-(`assets/photo-placeholder.svg`) so no real person is depicted.
+Where a country's convention includes a photo, the example uses the same
+anonymous, gender-neutral placeholder portrait (`assets/photo-placeholder.svg`)
+so no real person is depicted.  Lean-CV countries (see the per-example comments
+and discussion #3) omit it, keeping the parameter as a commented-out
+instruction you can reinstate.
 
 The flagship `main.typ` is written in **English** (the lingua franca of EU
 mobility) but keeps an **Italian** persona: Europass uptake is highest in

@@ -54,7 +54,7 @@ jobs:
           # A gate that REPORTS, never rewrites: a contributor whose code needs
           # reformatting sees this step fail with the diff and can fix locally
           # or ask a maintainer.  Nobody is required to install anything.
-          typstyle --check lib.typ main.typ examples/*.typ
+          typstyle --check lib.typ main.typ social-preview.typ examples/*.typ
 
       - name: Build main CV (hermetic fonts, PDF/UA-1) and verify
         run: ./build.sh

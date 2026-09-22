@@ -16,8 +16,10 @@ the link later forces a pointless `1.0.1` bump.
       `unknown fields in package: ["thumbnail"]`); the site picks the file up
       by convention.
 - [x] README CI badge points at the real repository
-- [ ] Regenerate `thumbnail.png` if the visual design changed:
+- [x] Regenerate `thumbnail.png` if the visual design changed:
       `typst compile --ignore-system-fonts --font-path fonts --format png --ppi 150 --pages 1 main.typ thumbnail.png`
+      (done for the 1.1.0 section-spacing change; whenever the thumbnail moves,
+      also regenerate `social-preview.png` via `social-preview.typ`).
 
 ## 1. GitHub first
 
@@ -50,10 +52,10 @@ the link later forces a pointless `1.0.1` bump.
   pdf-ua, accessibility, i18n`.
 - **Social preview**: GitHub has no REST endpoint for the Open-Graph preview
   image, so it must be uploaded in the UI:
-  *Settings → Social preview → upload `social-preview.png`* (1280×640, <1 MB,
-  generated from `thumbnail.png` with the vendored Open Sans).  Do not upload
-  `thumbnail.png` itself: it is A4 portrait and would crop badly in the 2:1
-  slot.
+  *Settings → Social preview → upload `social-preview.png`* (1280×640, <1 MB).
+  The card is generated reproducibly by `social-preview.typ` (compile command
+  in its header).  Do not upload `thumbnail.png` itself: it is A4 portrait and
+  would crop badly in the 2:1 slot.
 
 ## 4. After publication
 
