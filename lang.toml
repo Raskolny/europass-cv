@@ -41,6 +41,7 @@ gender-female = "Female"
 gender-other = "Other"
 gender-undeclared = "Prefer not to say"
 photo-alt = "Placeholder portrait photograph"
+signature-alt = "Handwritten signature"
 
 [it]
 personal-info = "INFORMAZIONI PERSONALI"
@@ -82,6 +83,7 @@ gender-female = "Femmina"
 gender-other = "Altro"
 gender-undeclared = "Preferisce non dichiararlo"
 photo-alt = "Fotografia segnaposto del ritratto"
+signature-alt = "Firma autografa"
 
 [fr]
 personal-info = "INFORMATIONS PERSONNELLES"
@@ -123,6 +125,7 @@ gender-female = "Féminin"
 gender-other = "Autre"
 gender-undeclared = "Préfère ne pas le déclarer"
 photo-alt = "Photographie de portrait générique"
+signature-alt = "Signature manuscrite"
 
 [de]
 personal-info = "PERSÖNLICHE ANGABEN"
@@ -164,6 +167,7 @@ gender-female = "Weiblich"
 gender-other = "Divers"
 gender-undeclared = "Keine Angabe"
 photo-alt = "Platzhalter-Porträtfoto"
+signature-alt = "Handschriftliche Unterschrift"
 
 [es]
 personal-info = "INFORMACIÓN PERSONAL"
@@ -205,6 +209,7 @@ gender-female = "Femenino"
 gender-other = "Otro"
 gender-undeclared = "Prefiere no declararlo"
 photo-alt = "Fotografía de retrato genérica"
+signature-alt = "Firma manuscrita"
 
 [pt]
 personal-info = "INFORMAÇÃO PESSOAL"
@@ -246,6 +251,7 @@ gender-female = "Feminino"
 gender-other = "Outro"
 gender-undeclared = "Prefere não declarar"
 photo-alt = "Fotografia de retrato genérica"
+signature-alt = "Assinatura manuscrita"
 
 [nl]
 personal-info = "PERSOONLIJKE GEGEVENS"
@@ -287,6 +293,7 @@ gender-female = "Vrouw"
 gender-other = "Anders"
 gender-undeclared = "Wil ik niet vermelden"
 photo-alt = "Generieke portretfoto"
+signature-alt = "Handgeschreven handtekening"
 
 [pl]
 personal-info = "DANE OSOBOWE"
@@ -328,6 +335,7 @@ gender-female = "Kobieta"
 gender-other = "Inna"
 gender-undeclared = "Woli nie podawać"
 photo-alt = "Zdjęcie portretowe (symboliczne)"
+signature-alt = "Podpis odręczny"
 
 [ro]
 personal-info = "INFORMAȚII PERSONALE"
@@ -369,6 +377,7 @@ gender-female = "Feminin"
 gender-other = "Altul"
 gender-undeclared = "Preferă să nu declare"
 photo-alt = "Fotografie portret generică"
+signature-alt = "Semnătură scrisă de mână"
 
 [bg]
 personal-info = "ЛИЧНА ИНФОРМАЦИЯ"
@@ -410,6 +419,7 @@ gender-female = "Жена"
 gender-other = "Друго"
 gender-undeclared = "Предпочита да не посочва"
 photo-alt = "Примерна портретна снимка"
+signature-alt = "Собственоръчен подпис"
 
 [cs]
 personal-info = "OSOBNÍ ÚDAJE"
@@ -451,6 +461,7 @@ gender-female = "Žena"
 gender-other = "Jiné"
 gender-undeclared = "Neuvádí"
 photo-alt = "Zástupný portrétový snímek"
+signature-alt = "Vlastnoruční podpis"
 
 [da]
 personal-info = "PERSONOPLYSNINGER"
@@ -492,6 +503,7 @@ gender-female = "Kvinde"
 gender-other = "Andet"
 gender-undeclared = "Ønsker ikke at oplyse"
 photo-alt = "Pladsholder-portrætfoto"
+signature-alt = "Håndskrevet underskrift"
 
 [el]
 personal-info = "ΠΡΟΣΩΠΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ"
@@ -533,6 +545,7 @@ gender-female = "Γυναίκα"
 gender-other = "Άλλο"
 gender-undeclared = "Προτιμά να μην δηλώσει"
 photo-alt = "Εικονική φωτογραφία πορτρέτου"
+signature-alt = "Ιδιόχειρη υπογραφή"
 
 [et]
 personal-info = "ISIKUANDMED"
@@ -574,6 +587,7 @@ gender-female = "Naine"
 gender-other = "Muu"
 gender-undeclared = "Ei soovi avaldada"
 photo-alt = "Kohahoidja portreefoto"
+signature-alt = "Omakäeline allkiri"
 
 [fi]
 personal-info = "HENKILÖTIEDOT"
@@ -615,6 +629,7 @@ gender-female = "Nainen"
 gender-other = "Muu"
 gender-undeclared = "Ei halua ilmoittaa"
 photo-alt = "Paikanpitäjä-muotokuva"
+signature-alt = "Omakätinen allekirjoitus"
 
 [hr]
 personal-info = "OSOBNI PODACI"
@@ -656,6 +671,7 @@ gender-female = "Žensko"
 gender-other = "Ostalo"
 gender-undeclared = "Ne želi se izjasniti"
 photo-alt = "Zamjenska portretna fotografija"
+signature-alt = "Vlastoručni potpis"
 
 [hu]
 personal-info = "SZEMÉLYES ADATOK"
@@ -697,6 +713,7 @@ gender-female = "Nő"
 gender-other = "Egyéb"
 gender-undeclared = "Nem kíválja megadni"
 photo-alt = "Helyettesítő portréfotó"
+signature-alt = "Kézzel írt aláírás"
 
 [ga]
 personal-info = "FAISNÉIS PHEARSANTA"
@@ -738,6 +755,7 @@ gender-female = "Baineann"
 gender-other = "Eile"
 gender-undeclared = "Is fearr gan a rá"
 photo-alt = "Grianghraf ionadaíoch portráide"
+signature-alt = "Síniú láimhe"
 
 [lt]
 personal-info = "ASMENS INFORMACIJA"
@@ -779,6 +797,7 @@ gender-female = "Moteris"
 gender-other = "Kita"
 gender-undeclared = "Nenori nurodyti"
 photo-alt = "Pakaitinė portreto nuotrauka"
+signature-alt = "Ranka rašytas parašas"
 
 [lv]
 personal-info = "PERSONAS INFORMĀCIJA"
@@ -820,6 +839,7 @@ gender-female = "Sieviete"
 gender-other = "Cits"
 gender-undeclared = "Nevēlas norādīt"
 photo-alt = "Viettura portreta fotogrāfija"
+signature-alt = "Pašrocīgs paraksts"
 
 [mt]
 personal-info = "INFORMAZZJONI PERSONALI"
@@ -861,6 +881,7 @@ gender-female = "Mara"
 gender-other = "Oħra"
 gender-undeclared = "Jippreferi ma jiddikjarax"
 photo-alt = "Ritratt simboliku"
+signature-alt = "Firma bil-idejn"
 
 [sk]
 personal-info = "OSOBNÉ ÚDAJE"
@@ -902,6 +923,7 @@ gender-female = "Žena"
 gender-other = "Iné"
 gender-undeclared = "Neuvádza"
 photo-alt = "Zástupná portrétová fotografia"
+signature-alt = "Vlastnoručný podpis"
 
 [sl]
 personal-info = "OSEBNI PODATKI"
@@ -943,6 +965,7 @@ gender-female = "Ženski"
 gender-other = "Drugo"
 gender-undeclared = "Ne želi se opredeliti"
 photo-alt = "Nadomestna portretna fotografija"
+signature-alt = "Lastnoročni podpis"
 
 [sv]
 personal-info = "PERSONLIGA UPPGIFTER"
@@ -984,3 +1007,4 @@ gender-female = "Kvinna"
 gender-other = "Annat"
 gender-undeclared = "Vill inte ange"
 photo-alt = "Platshållar-porträttfoto"
+signature-alt = "Handskriven underskrift"

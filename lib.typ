@@ -376,7 +376,13 @@
   declaration: true, // set false to omit the legal clause
   signature-place: "",
   signature-date: "",
-  signature-image: none, // e.g. "signature.png"; none draws a line
+  // Optional handwritten signature.  `none` (the default) draws a rule to sign
+  // on paper after printing; a path renders that image in its place.
+  signature-image: none, // e.g. "signature.png"
+  // REQUIRED for PDF/UA-1 whenever `signature-image` is set: an untagged image
+  // fails the `--pdf-standard 1.7,ua-1` build.  Override with the localised
+  // string, e.g. `signature-alt: l("it").at("signature-alt")`.
+  signature-alt: "Handwritten signature",
 
   // ── Optional extra content ────────────────────────────────────────────────
   // MUST stay a required *positional* parameter with no default: that is what
@@ -575,10 +581,21 @@
           #if signature-date != "" [#t.at("date"): #signature-date]
         ],
       )
-      v(8pt)
+      // A rendered signature image already fills the visual space that the
+      // paper-signing rule deliberately leaves blank, so it needs less room
+      // above it.
+      if signature-image != none { v(8pt) } else { v(16pt) }
       block(width: 55mm)[
         #if signature-image != none {
-          image(signature-image, width: 40mm)
+          // `fit: "contain"` plus an explicit height cap preserves the aspect
+          // ratio and stops a tall scan from overflowing the 55mm block.
+          image(
+            signature-image,
+            width: 40mm,
+            height: 16mm,
+            fit: "contain",
+            alt: signature-alt,
+          )
         } else {
           line(length: 100%, stroke: 0.5pt + eu-gray)
         }

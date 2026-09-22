@@ -46,4 +46,6 @@
 
   signature-place: "Tallinn",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("et").at("signature-alt"),
 )

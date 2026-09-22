@@ -46,4 +46,6 @@
 
   signature-place: "Αθήνα",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("el").at("signature-alt"),
 )

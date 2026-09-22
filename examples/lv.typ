@@ -46,4 +46,6 @@
 
   signature-place: "Rīga",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("lv").at("signature-alt"),
 )
