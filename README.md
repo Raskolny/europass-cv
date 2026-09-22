@@ -17,10 +17,13 @@ A faithful, **accessible** reproduction of the official European Union
 - **CEFR language self-assessment table** (A1–C2) with contrast-safe shading.
 - **GDPR / DPR 445 self-declaration** clause, localised.
 - **Full i18n for all 24 official EU languages.**
-- **PDF/UA-1 (ISO 14289-1) accessible output**, verified by `verify.sh`.
-- **Self-contained fonts**: the whole Open Sans family is vendored in
-  `fonts/`, so builds are reproducible and the PDF never substitutes a
-  locally installed font.
+- **PDF/UA-1 (ISO 14289-1) output** — enforced at compile time
+  (`--pdf-standard 1.7,ua-1`) and covered by the automated accessibility
+  checks in `verify.sh`.
+- **Self-contained repository builds**: the whole Open Sans family is vendored
+  in `fonts/`, so repository builds are reproducible and never substitute a
+  locally installed font (the published Universe package excludes the font
+  binaries — see *Fonts & reproducibility* below).
 
 ---
 
@@ -98,7 +101,7 @@ Anything you write *below* the `#show:` line is appended as an extra section.
 | Personal info | `name`, `photo`, `photo-alt`, `address`, `postal-code`, `city`, `country`, `phone`, `email`, `website`, `nationality`, `date-of-birth`, `gender` |
 | Sections | `work-experience`, `education` (arrays of `cv-entry`) |
 | Skills | `mother-tongue`, `other-languages`, `digital-skills`, `comm-skills`, `org-skills`, `job-skills`, `other-skills`, `driving-licence` |
-| Declaration | `declaration`, `signature-place`, `signature-date`, `signature-image`, `signature-alt` |
+| Declaration | `declaration`, `signature-place`, `signature-date`, `signature-image` *(1.1.0, unreleased)*, `signature-alt` *(1.1.0, unreleased)* |
 
 Every parameter has a default; supply only what you need.
 
@@ -118,6 +121,10 @@ accessible.
 
 ### Signature
 
+> **Availability.**  `signature-image:` / `signature-alt:` are part of the
+> upcoming **1.1.0** release; they are *not* available from the published
+> `@preview/rasko-europass:1.0.0`.
+
 By default the declaration block ends with a thin rule, leaving space to sign
 **on paper after printing**.  To render an uploaded handwritten signature
 instead, point `signature-image:` at it:
@@ -127,13 +134,21 @@ instead, point `signature-image:` at it:
   lang: "it",
   signature-place: "Roma",
   signature-date: "15 settembre 2025",
-  signature-image: "signature.png",
+  // Load your own file as BYTES — see the path-resolution note below.
+  signature-image: read("signature.png", encoding: none),
   signature-alt: l("it").at("signature-alt"), // "Firma autografa"
 )
 ```
 
 Notes:
 
+- **Image paths resolve inside the package, not your project.**  Typst
+  resolves a relative path string where it is *consumed* (`lib.typ`, inside
+  the package), so a bare `signature-image: "signature.png"` would search the
+  package directory and fail.  Pass bytes instead —
+  `read("signature.png", encoding: none)` resolves relative to *your*
+  document.  The same applies to `photo:`.  (Paths to files shipped *with* the
+  package, e.g. `"assets/signature-sample.svg"`, work as plain strings.)
 - The image is fitted to a **40 mm × 16 mm** box with `fit: "contain"`, so the
   aspect ratio is preserved and a tall scan can never overflow the 55 mm block
   or push the layout around.
@@ -181,7 +196,7 @@ Why this rather than one file per language (or an inline dictionary)?
 
 ## Gender (inclusive, localisable, omittable)
 
-The `gender` parameter is deliberately flexible and GDPR-conscious:
+The `gender` parameter is deliberately flexible, localisable, and omittable:
 
 | Value | Effect |
 | --- | --- |
@@ -210,10 +225,8 @@ and discussion #3) omit it, keeping the parameter as a commented-out
 instruction you can reinstate.
 
 The flagship `main.typ` is written in **English** (the lingua franca of EU
-mobility) but keeps an **Italian** persona: Europass uptake is highest in
-Southern/Eastern Europe and Italy is its largest single market, whereas
-Germany and France favour their national CV formats — so an Italian submitting
-in English is the archetypal Europass user.
+mobility) but keeps an **Italian** persona — a common Europass combination for
+EU/international applications.
 
 ---
 

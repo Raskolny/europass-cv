@@ -28,7 +28,9 @@ reachable through the immutable `v1.0.0` tag.
   - asset strategy settled on **one shared vector**,
     `assets/signature-sample.svg` (1.4 KB), matching the existing
     `assets/photo-placeholder.svg` pattern instead of 24 per-example rasters,
-    so the Universe bundle stays small; all 24 examples now exercise it.
+    so the Universe bundle stays small; all 24 examples reference it — active
+    in the five signature-convention countries (`bg`, `el`, `hr`, `pl`, `ro`),
+    kept as a commented-out instruction in the rest.
 
   Verified: `main.typ` (default rule path) and all 24 examples compile clean
   under `--pdf-standard 1.7,ua-1`, with the localised `/Alt` string present in
@@ -61,6 +63,27 @@ reachable through the immutable `v1.0.0` tag.
   is corrected.  README and CONTRIBUTING no longer claim every example carries
   the placeholder portrait: lean-CV countries omit it, keeping the parameter as
   a commented-out instruction.
+
+- **Docs accuracy pass (pre-review)** — the README now documents Typst's
+  cross-package image-path resolution (a bare `signature-image: "…png"`
+  string resolves *inside the package*, so user files must be passed as bytes
+  via `read(.., encoding: none)`; same for `photo:`), marks the signature
+  feature as unreleased **1.1.0** (it is not part of the published
+  `@preview/rasko-europass:1.0.0`), drops the unsourced Europass-market
+  paragraph (README and `main.typ` header) and the "GDPR-conscious" wording on
+  the `gender` parameter, and rewords the PDF/UA-1 claim as compile-time
+  enforcement plus automated checks.  The `thumbnail` notes in `typst.toml`
+  and `PUBLISHING.md` no longer claim the file is "picked up by convention"
+  (a `thumbnail` key is only valid in a `[template]` table, which this package
+  does not declare), and `social-preview.png` joins `social-preview.typ` in
+  `exclude` as dev-only output.  The `description` is shortened per the
+  manifest guidelines, and the Universe submission
+  ([typst/packages#5905](https://github.com/typst/packages/pull/5905)) was
+  updated in kind: it now declares a `[template]` table
+  (`template/main.typ` + `thumbnail.png`), drops the dev-only
+  `.gitignore`/`PUBLISHING.md`/`CONTRIBUTING.md` from the package folder and
+  carries the same comment/prose fixes.  This development repo adopts the
+  `template/` structure in 1.1.0 (see ROADMAP.md).
 
 ### Planned
 

@@ -50,6 +50,8 @@ typstyle -i      lib.typ main.typ social-preview.typ examples/*.typ   # apply in
 ## Adding or fixing a language
 
 All translations live in **`lang.toml`** — do not add strings to `lib.typ`.
+Translations are community-maintained; native-speaker review and corrections
+are always welcome (open a PR or a discussion).
 
 1. Edit (or add) the `[<code>]` table in `lang.toml`.  Keep the full key set;
    the required keys are the ones already present for `en` (section headers,

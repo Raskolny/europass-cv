@@ -32,9 +32,13 @@ Consultation: [discussion #3](https://github.com/Raskolny/europass-cv/discussion
       country/language conflation.
 - [ ] README section documenting the country profiles, with an explicit
       "verify your jurisdiction" note — conventions, not legal advice.
-- [ ] Housekeeping: regenerate `thumbnail.png` (stale since the section-spacing
-      change); fix the contradictory "fonts ship with the package" comment in
-      `typst.toml` (they are in `exclude`).
+- [x] Housekeeping: regenerate `thumbnail.png` (was stale since the
+      section-spacing change); fix the contradictory "fonts ship with the
+      package" comment in `typst.toml` (they are in `exclude`).
+- [ ] Adopt the submission's **template structure** in this repo: move
+      `main.typ` to `template/main.typ`, declare `[template]` in `typst.toml`
+      (done in typst/packages#5905; `build.sh`, CI and the README layout
+      section must follow).
 - Pending [discussion #2](https://github.com/Raskolny/europass-cv/discussions/2):
   `extra-fields:` and `cv-section(..)`.
 

@@ -11,10 +11,14 @@ the link later forces a pointless `1.0.1` bump.
 - [x] `typst.toml` → `authors = ["rasko-- <raskolny@gmail.com>"]` (Universe display name)
 - [x] `typst.toml` → `repository = "https://github.com/Raskolny/europass-cv"`
 - [x] `thumbnail.png` present at repo root and included in the package bundle.
-      Do **not** add a `thumbnail` key to `typst.toml`: the current bundler
-      rejects unknown manifest fields (it failed CI with
-      `unknown fields in package: ["thumbnail"]`); the site picks the file up
-      by convention.
+      A `thumbnail` key is only valid inside a `[template]` table — unknown
+      `[package]` fields are rejected by the bundler (it failed CI with
+      `unknown fields in package: ["thumbnail"]`).  The submission therefore
+      declares `[template]` (see §2): `thumbnail = "thumbnail.png"` there, and
+      a `[template]` thumbnail must not be referenced inside the package, so
+      the bundled README shows `preview.png` (an identical copy, listed in
+      `exclude` — excluded files still render on Universe).
+      This development repo stays flat (no `template/`) until 1.1.0.
 - [x] README CI badge points at the real repository
 - [x] Regenerate `thumbnail.png` if the visual design changed:
       `typst compile --ignore-system-fonts --font-path fonts --format png --ppi 150 --pages 1 main.typ thumbnail.png`
@@ -34,15 +38,29 @@ the link later forces a pointless `1.0.1` bump.
 
 1. Fork <https://github.com/typst/packages>.
 2. Add the package at `packages/preview/rasko-europass/1.0.0/`, copying the
-   repository contents **minus** the globs in `typst.toml`'s `exclude`
-   (`output.pdf`, `build.sh`, `build-examples.sh`, `verify.sh`,
-   `examples/pdf`).  Do **not** exclude `README.md` or `LICENSE`.
+   repository contents **minus** the globs in `typst.toml`'s `exclude` (see
+   the manifest for the authoritative list) and minus dev-only files that
+   `tips.md` says not to commit (`.gitignore`, `PUBLISHING.md`,
+   `CONTRIBUTING.md`).  Do **not** exclude `README.md` or `LICENSE`.
+   The submission is a **template package**: `main.typ` lives at
+   `template/main.typ` and the manifest declares
+
+   ```toml
+   [template]
+   path = "template"
+   entrypoint = "main.typ"
+   thumbnail = "thumbnail.png"
+   ```
+
+   plus a `preview.png` copy of the thumbnail for the README banner
+   (excluded from the bundle).
 3. Ensure the folder name matches `{name}/{version}` and that `typst.toml`'s
    `name`/`version` agree.
 4. Open the submission PR against `typst/packages`, referencing the
    `v1.0.0` tag of `Raskolny/europass-cv`.
-5. Reviewers will check: licence (MIT) and the bundled fonts' licence
-   (Apache-2.0, documented in `fonts/README.md`), the thumbnail, the README
+5. Reviewers will check: licence (MIT) and the licence of the repository-vendored
+   fonts (Apache-2.0, documented in `fonts/README.md` and `NOTICE.md`; the font
+   binaries themselves are excluded from the bundle), the thumbnail, the README
    `@preview` usage snippet, and that the compiler floor (`0.15.0`) is correct.
 
 ## 3. Web-only polish (GitHub UI; no API exists for these)
