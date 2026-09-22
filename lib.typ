@@ -413,9 +413,16 @@
   }
   show heading.where(level: 2): it => {
     set text(fill: eu-blue, weight: "bold", size: section-size)
+    // The gap ABOVE the title must be real content space, not a block margin:
+    // Typst drops the top margin of the first element inside a grid cell, so
+    // `above:` here would be silently ignored.  `below` keeps the heading
+    // visually grouped with the content that follows.
     block(width: 100%, below: 6pt)[
+      #v(section-gap)
       #it
-      #v(1pt)
+      // A little air between the title and its rule, so the rule reads as a
+      // section separator rather than an underline glued to the text.
+      #v(3pt)
       #line(length: 100%, stroke: 0.6pt + eu-blue)
     ]
   }

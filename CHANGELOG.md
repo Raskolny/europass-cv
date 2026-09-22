@@ -43,6 +43,13 @@ reachable through the immutable `v1.0.0` tag.
   verified inert: all 25 rendered PDFs are pixel-, text- and outline-identical
   before and after.  typstyle 0.15.1 has no config file, so the pinned version
   plus its default flags (line width 80, indent 2) are the whole contract.
+- **Section-title spacing** — each `H2` section heading now clears the section
+  before it by `section-gap` (8pt), and its blue rule sits 3pt below the title
+  instead of 1pt, matching the official Europass rhythm.  The previously
+  orphaned `section-gap` constant is now wired up.  The gap is real content
+  space (`v()`), not a block margin, because Typst silently drops the top
+  margin of the first element inside a grid cell.  Measured on the rendered
+  PDF: previous-section→title +8pt, title→rule +2pt, rule→content unchanged.
 
 ### Planned
 
@@ -51,9 +58,8 @@ Pending
 `extra-fields:` for country-specific personal information, and an exported
 `cv-section(..)` for user-defined trailing sections.
 
-Also planned: section-title spacing, and richer PDF metadata (exposing
-`keywords` / `description`, optionally outlining H3 entry titles for nested
-bookmarks).
+Also planned: richer PDF metadata (exposing `keywords` / `description`,
+optionally outlining H3 entry titles for nested bookmarks).
 
 ## [1.0.0] — initial release
 
