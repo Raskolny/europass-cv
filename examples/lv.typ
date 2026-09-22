@@ -1,6 +1,8 @@
 // Europass CV example — Latvian (lv).
 // Persona of Latviete nationality.  Demonstrates lang="lv" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Latvia customarily omits the signature/date block;
+// photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "lv@europass.example",
   nationality: "Latviete",
   date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(
@@ -53,9 +54,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "Rīga",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("lv").at("signature-alt"),
 )

@@ -1,6 +1,8 @@
 // Europass CV example — Swedish (sv).
 // Persona of Svensk nationality.  Demonstrates lang="sv" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Sweden customarily omits photo, date of birth,
+// gender and any signature/date at the foot (anti-discrimination practice and
+// lean-CV custom).  Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -9,15 +11,11 @@
   author: "Elsa Andersson",
 
   name: "Elsa Andersson",
-  photo: "assets/photo-placeholder.svg",
-  photo-alt: l("sv").at("photo-alt"),
   address: "Example Street 1",
   city: "Stockholm",
   phone: "+00 000 000 000",
   email: "sv@europass.example",
   nationality: "Svensk",
-  date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(
@@ -53,9 +51,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "Stockholm",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("sv").at("signature-alt"),
 )

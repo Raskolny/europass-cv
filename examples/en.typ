@@ -1,6 +1,8 @@
 // Europass CV example — English (en).
 // Persona of Irish nationality.  Demonstrates lang="en" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Ireland customarily omits photo, date of birth,
+// gender and any signature/date at the foot (anti-discrimination practice and
+// lean-CV custom).  Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -9,15 +11,11 @@
   author: "Aoife Murphy",
 
   name: "Aoife Murphy",
-  photo: "assets/photo-placeholder.svg",
-  photo-alt: l("en").at("photo-alt"),
   address: "Example Street 1",
   city: "Dublin",
   phone: "+00 000 000 000",
   email: "en@europass.example",
   nationality: "Irish",
-  date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(
@@ -51,9 +49,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "Dublin",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("en").at("signature-alt"),
 )

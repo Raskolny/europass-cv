@@ -1,6 +1,8 @@
 // Europass CV example — Danish (da).
 // Persona of Dansk nationality.  Demonstrates lang="da" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Denmark customarily omits photo, date of birth,
+// gender and any signature/date at the foot (anti-discrimination practice and
+// lean-CV custom).  Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -9,15 +11,11 @@
   author: "Mette Jensen",
 
   name: "Mette Jensen",
-  photo: "assets/photo-placeholder.svg",
-  photo-alt: l("da").at("photo-alt"),
   address: "Example Street 1",
   city: "København",
   phone: "+00 000 000 000",
   email: "da@europass.example",
   nationality: "Dansk",
-  date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(
@@ -53,9 +51,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "København",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("da").at("signature-alt"),
 )

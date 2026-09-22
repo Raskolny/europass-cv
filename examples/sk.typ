@@ -1,6 +1,8 @@
 // Europass CV example — Slovak (sk).
 // Persona of Slovenka nationality.  Demonstrates lang="sk" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Slovakia customarily omits the signature/date block;
+// photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "sk@europass.example",
   nationality: "Slovenka",
   date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(
@@ -51,9 +52,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "Bratislava",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("sk").at("signature-alt"),
 )

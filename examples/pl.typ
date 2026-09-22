@@ -1,6 +1,8 @@
 // Europass CV example — Polish (pl).
 // Persona of Polka nationality.  Demonstrates lang="pl" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Poland still customarily closes the CV with
+// place/date and a signature; photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "pl@europass.example",
   nationality: "Polka",
   date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(

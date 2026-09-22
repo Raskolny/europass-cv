@@ -1,6 +1,8 @@
 // Europass CV example — Bulgarian (bg).
 // Persona of Българин nationality.  Demonstrates lang="bg" end to end.
-// Gender option used here: "male"
+// Conventions (discussion #3): Bulgaria still customarily closes the CV with
+// place/date and a signature; photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "bg@europass.example",
   nationality: "Българин",
   date-of-birth: "01/01/1990",
-  gender: "male",
 
   work-experience: (
     cv-entry(

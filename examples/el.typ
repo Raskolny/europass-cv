@@ -1,6 +1,8 @@
 // Europass CV example — Greek (el).
 // Persona of Ελληνίδα nationality.  Demonstrates lang="el" end to end.
-// Gender option used here: "female"
+// Conventions (discussion #3): Greece still customarily closes the CV with
+// place/date and a signature; photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "el@europass.example",
   nationality: "Ελληνίδα",
   date-of-birth: "01/01/1990",
-  gender: "female",
 
   work-experience: (
     cv-entry(

@@ -1,6 +1,8 @@
 // Europass CV example — Romanian (ro).
 // Persona of Român nationality.  Demonstrates lang="ro" end to end.
-// Gender option used here: "male"
+// Conventions (discussion #3): Romania still customarily closes the CV with
+// place/date and a signature; photo and date of birth are kept, gender omitted.
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,7 +19,6 @@
   email: "ro@europass.example",
   nationality: "Român",
   date-of-birth: "01/01/1990",
-  gender: "male",
 
   work-experience: (
     cv-entry(

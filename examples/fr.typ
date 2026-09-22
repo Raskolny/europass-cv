@@ -1,6 +1,9 @@
 // Europass CV example — French (fr).
 // Persona of Française nationality.  Demonstrates lang="fr" end to end.
-// Gender option used here: "undeclared"
+// Conventions (discussion #3): France customarily omits the signature/date block;
+// photo and date of birth are kept, gender omitted.  Dates use month names in words, lowercase.
+
+// Unverified convention - corrections welcome in #3.
 #import "@preview/rasko-europass:1.0.0": cv-entry, europass-cv, l
 
 #show: europass-cv.with(
@@ -17,11 +20,10 @@
   email: "fr@europass.example",
   nationality: "Française",
   date-of-birth: "01/01/1990",
-  gender: "undeclared",
 
   work-experience: (
     cv-entry(
-      date-start: "2021",
+      date-start: "janvier 2021",
       date-end: "",
       title: "Ingénieure logiciel senior",
       organization: "European Tech Solutions",
@@ -33,8 +35,8 @@
   ),
   education: (
     cv-entry(
-      date-start: "2013",
-      date-end: "2015",
+      date-start: "septembre 2013",
+      date-end: "juin 2015",
       title: "Master en informatique",
       organization: "Université Paris-Cité",
       location: "Paris",
@@ -53,9 +55,4 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
-
-  signature-place: "Paris",
-  signature-date: "2025",
-  signature-image: "assets/signature-sample.svg",
-  signature-alt: l("fr").at("signature-alt"),
 )
