@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Vanemtarkvaraarendaja",
       organization: "European Tech Solutions",
       location: "Tallinn",
-      description: [- Juhtis kuueliikmelist inseneride meeskonda cloud-native teenuste väljatöötamisel.],
+      description: [
+        - Juhtis kuueliikmelist inseneride meeskonda cloud-native teenuste väljatöötamisel.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Magister informaatikas",
       organization: "Tallinna Tehnikaülikool",
       location: "Tallinn",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Eesti",
   other-languages: (
-    (lang: "Inglise", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Inglise",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

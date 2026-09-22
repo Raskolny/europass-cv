@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior-Softwareentwickler",
       organization: "European Tech Solutions",
       location: "Berlin",
-      description: [- Leitete ein Team von sechs Ingenieuren für cloud-native Dienste.],
+      description: [
+        - Leitete ein Team von sechs Ingenieuren für cloud-native Dienste.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Master in Informatik",
       organization: "TU Berlin",
       location: "Berlin",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Deutsch",
   other-languages: (
-    (lang: "Englisch", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Englisch",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

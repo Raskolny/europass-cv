@@ -21,7 +21,8 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior softwarový inženýr",
       organization: "European Tech Solutions",
       location: "Praha",
@@ -30,7 +31,8 @@
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Ing., informatika",
       organization: "ČVUT v Praze",
       location: "Praha",
@@ -39,8 +41,14 @@
 
   mother-tongue: "Čeština",
   other-languages: (
-    (lang: "Angličtina", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angličtina",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

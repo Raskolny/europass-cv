@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Ingegnera software senior",
       organization: "European Tech Solutions",
       location: "Roma",
-      description: [- Ha guidato un team di sei ingegneri su servizi cloud-native.],
+      description: [
+        - Ha guidato un team di sei ingegneri su servizi cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Laurea magistrale in Ingegneria informatica",
       organization: "Sapienza Università di Roma",
       location: "Roma",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Italiano",
   other-languages: (
-    (lang: "Inglese", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Inglese",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

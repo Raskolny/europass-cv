@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Engenheiro de software sénior",
       organization: "European Tech Solutions",
       location: "Lisboa",
-      description: [- Liderou uma equipa de seis engenheiros em serviços cloud-native.],
+      description: [
+        - Liderou uma equipa de seis engenheiros em serviços cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Mestrado em Engenharia Informática",
       organization: "Universidade de Lisboa",
       location: "Lisboa",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Português",
   other-languages: (
-    (lang: "Inglês", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Inglês",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

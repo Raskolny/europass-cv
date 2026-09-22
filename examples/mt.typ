@@ -21,7 +21,8 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Inġiniera tas-softwer senjor",
       organization: "European Tech Solutions",
       location: "Valletta",
@@ -30,7 +31,8 @@
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Master fl-Informatika",
       organization: "Università ta' Malta",
       location: "Valletta",
@@ -39,8 +41,14 @@
 
   mother-tongue: "Malti",
   other-languages: (
-    (lang: "Ingliż", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Ingliż",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

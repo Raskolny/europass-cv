@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Ard-innealtóir bogearraí",
       organization: "European Tech Solutions",
       location: "Baile Átha Cliath",
-      description: [- Stiúir foireann sé innealtóir ar sheirbhísí cloud-native.],
+      description: [
+        - Stiúir foireann sé innealtóir ar sheirbhísí cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "MSc sa Ríomheolaíocht",
       organization: "Coláiste na Tríonóide",
       location: "Baile Átha Cliath",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Gaeilge",
   other-languages: (
-    (lang: "Béarla", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Béarla",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Ingeniera de software sénior",
       organization: "European Tech Solutions",
       location: "Madrid",
-      description: [- Dirigió un equipo de seis ingenieros en servicios cloud-native.],
+      description: [
+        - Dirigió un equipo de seis ingenieros en servicios cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Máster en Informática",
       organization: "Universidad Complutense de Madrid",
       location: "Madrid",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Español",
   other-languages: (
-    (lang: "Inglés", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Inglés",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

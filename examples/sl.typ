@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Višja programska inženirka",
       organization: "European Tech Solutions",
       location: "Ljubljana",
-      description: [- Vodila je šestčlansko ekipo inženirjev na cloud-native storitvah.],
+      description: [
+        - Vodila je šestčlansko ekipo inženirjev na cloud-native storitvah.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Magisterij iz informatike",
       organization: "Univerza v Ljubljani",
       location: "Ljubljana",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Slovenščina",
   other-languages: (
-    (lang: "Angleščina", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angleščina",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

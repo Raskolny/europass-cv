@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Inginer software senior",
       organization: "European Tech Solutions",
       location: "București",
-      description: [- A coordonat o echipă de șase ingineri pe servicii cloud-native.],
+      description: [
+        - A coordonat o echipă de șase ingineri pe servicii cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Master în informatică",
       organization: "Universitatea din București",
       location: "București",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Română",
   other-languages: (
-    (lang: "Engleză", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Engleză",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

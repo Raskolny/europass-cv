@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Vecākā programmatūras inženiere",
       organization: "European Tech Solutions",
       location: "Rīga",
-      description: [- Vadīja sešu inženieru komandu cloud-native pakalpojumu izstrādē.],
+      description: [
+        - Vadīja sešu inženieru komandu cloud-native pakalpojumu izstrādē.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Datorzinātņu maģistre",
       organization: "Latvijas Universitāte",
       location: "Rīga",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Latviešu",
   other-languages: (
-    (lang: "Angļu", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angļu",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

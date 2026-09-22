@@ -21,7 +21,8 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior softvérová inžinierka",
       organization: "European Tech Solutions",
       location: "Bratislava",
@@ -30,7 +31,8 @@
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Ing., informatika",
       organization: "STU v Bratislave",
       location: "Bratislava",
@@ -39,8 +41,14 @@
 
   mother-tongue: "Slovenčina",
   other-languages: (
-    (lang: "Angličtina", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angličtina",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

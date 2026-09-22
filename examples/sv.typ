@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior mjukvaruingenjör",
       organization: "European Tech Solutions",
       location: "Stockholm",
-      description: [- Ledde ett team på sex ingenjörer inom cloud-native-tjänster.],
+      description: [
+        - Ledde ett team på sex ingenjörer inom cloud-native-tjänster.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Civilingenjör i datateknik",
       organization: "KTH",
       location: "Stockholm",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Svenska",
   other-languages: (
-    (lang: "Engelska", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Engelska",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

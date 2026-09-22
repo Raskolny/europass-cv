@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Ingénieure logiciel senior",
       organization: "European Tech Solutions",
       location: "Paris",
-      description: [- A dirigé une équipe de six ingénieurs sur des services cloud natifs.],
+      description: [
+        - A dirigé une équipe de six ingénieurs sur des services cloud natifs.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Master en informatique",
       organization: "Université Paris-Cité",
       location: "Paris",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Français",
   other-languages: (
-    (lang: "Anglais", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Anglais",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

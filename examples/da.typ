@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior softwareingeniør",
       organization: "European Tech Solutions",
       location: "København",
-      description: [- Ledede et team på seks ingeniører inden for cloud-native tjenester.],
+      description: [
+        - Ledede et team på seks ingeniører inden for cloud-native tjenester.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Cand.it i datalogi",
       organization: "Københavns Universitet",
       location: "København",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Dansk",
   other-languages: (
-    (lang: "Engelsk", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Engelsk",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

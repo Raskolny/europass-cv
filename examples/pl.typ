@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Starsza inżynier oprogramowania",
       organization: "European Tech Solutions",
       location: "Warszawa",
-      description: [- Kierowała sześciuosobowym zespołem inżynierów usług cloud-native.],
+      description: [
+        - Kierowała sześciuosobowym zespołem inżynierów usług cloud-native.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Magister informatyki",
       organization: "Uniwersytet Warszawski",
       location: "Warszawa",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Polski",
   other-languages: (
-    (lang: "Angielski", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angielski",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

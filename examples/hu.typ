@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Vezető szoftverfejlesztő",
       organization: "European Tech Solutions",
       location: "Budapest",
-      description: [- Hat fős mérnökcsapatot irányított cloud-native szolgáltatások fejlesztésében.],
+      description: [
+        - Hat fős mérnökcsapatot irányított cloud-native szolgáltatások fejlesztésében.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "MSc informatika",
       organization: "BME",
       location: "Budapest",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Magyar",
   other-languages: (
-    (lang: "Angol", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Angol",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

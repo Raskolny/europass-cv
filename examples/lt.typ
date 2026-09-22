@@ -21,16 +21,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Vyresnysis programinės įrangos inžinierius",
       organization: "European Tech Solutions",
       location: "Vilnius",
-      description: [- Vadovavo šešių inžinierių komandai, kuriančiai cloud-native paslaugas.],
+      description: [
+        - Vadovavo šešių inžinierių komandai, kuriančiai cloud-native paslaugas.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Informatikos magistras",
       organization: "Vilniaus universitetas",
       location: "Vilnius",
@@ -39,8 +43,14 @@
 
   mother-tongue: "Lietuvių",
   other-languages: (
-    (lang: "Anglų", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Anglų",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 

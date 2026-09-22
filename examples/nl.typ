@@ -20,16 +20,20 @@
 
   work-experience: (
     cv-entry(
-      date-start: "2021", date-end: "",
+      date-start: "2021",
+      date-end: "",
       title: "Senior software-engineer",
       organization: "European Tech Solutions",
       location: "Amsterdam",
-      description: [- Leidde een team van zes engineers voor cloud-native diensten.],
+      description: [
+        - Leidde een team van zes engineers voor cloud-native diensten.
+      ],
     ),
   ),
   education: (
     cv-entry(
-      date-start: "2013", date-end: "2015",
+      date-start: "2013",
+      date-end: "2015",
       title: "Master informatica",
       organization: "Universiteit van Amsterdam",
       location: "Amsterdam",
@@ -38,8 +42,14 @@
 
   mother-tongue: "Nederlands",
   other-languages: (
-    (lang: "Engels", listening: "C1", reading: "C1",
-     interaction: "B2", production: "B2", writing: "C1"),
+    (
+      lang: "Engels",
+      listening: "C1",
+      reading: "C1",
+      interaction: "B2",
+      production: "B2",
+      writing: "C1",
+    ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 
