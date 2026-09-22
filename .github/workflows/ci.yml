@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TYPST_VERSION: "0.15.0"
+      TYPSTYLE_VERSION: "0.15.1"
     steps:
       # checkout v4.2.2, pinned by commit SHA.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -35,6 +36,25 @@ jobs:
           cp typst-x86_64-unknown-linux-musl/typst "$HOME/.local/bin/typst"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           typst --version
+
+      - name: Install typstyle (pinned canonical formatter)
+        run: |
+          # typstyle ships BARE release binaries (no .tar.xz archive like
+          # Typst), so the executable is downloaded directly; curl -f makes a
+          # wrong URL fail loudly.  Pinned because typstyle's output can change
+          # between versions and this version has no config file to pin
+          # instead (see CONTRIBUTING.md "Code style").
+          curl -fsSL -o "$HOME/.local/bin/typstyle" \
+            "https://github.com/Enter-tainer/typstyle/releases/download/v${TYPSTYLE_VERSION}/typstyle-x86_64-unknown-linux-musl"
+          chmod +x "$HOME/.local/bin/typstyle"
+          typstyle --version
+
+      - name: Check canonical formatting (typstyle --check)
+        run: |
+          # A gate that REPORTS, never rewrites: a contributor whose code needs
+          # reformatting sees this step fail with the diff and can fix locally
+          # or ask a maintainer.  Nobody is required to install anything.
+          typstyle --check lib.typ main.typ examples/*.typ
 
       - name: Build main CV (hermetic fonts, PDF/UA-1) and verify
         run: ./build.sh

@@ -10,7 +10,8 @@ Nothing released since `1.0.0`.  That version is submitted to Typst Universe as
 [typst/packages#5905](https://github.com/typst/packages/pull/5905) and is
 **frozen** — no further changes go into it.  Everything below lands in `1.1.0`.
 
-Work in progress lives on feature branches off `main`.
+Development for `1.1.0` happens directly on `main`; the submitted `1.0.0` stays
+reachable through the immutable `v1.0.0` tag.
 
 ### Added
 
@@ -32,6 +33,16 @@ Work in progress lives on feature branches off `main`.
   Verified: `main.typ` (default rule path) and all 24 examples compile clean
   under `--pdf-standard 1.7,ua-1`, with the localised `/Alt` string present in
   every rendered PDF and the signature measured at 40 × 14 mm undistorted.
+
+### Changed
+
+- **typstyle adopted as the declared formatter** for `.typ` sources, pinned in
+  CI (`TYPSTYLE_VERSION`).  CI runs `typstyle --check` as a gate that *reports*
+  but never rewrites, so no contributor is required to install anything.  The
+  one-off canonicalisation of the 24 examples (previous entry's commit) was
+  verified inert: all 25 rendered PDFs are pixel-, text- and outline-identical
+  before and after.  typstyle 0.15.1 has no config file, so the pinned version
+  plus its default flags (line width 80, indent 2) are the whole contract.
 
 ### Planned
 

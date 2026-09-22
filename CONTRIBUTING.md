@@ -23,6 +23,30 @@ Both scripts use `--ignore-system-fonts --font-path fonts`, so results are
 identical on every machine.  Never commit `output.pdf` or `examples/pdf/`
 (they are gitignored).
 
+## Code style (typstyle)
+
+The canonical formatter for `.typ` sources is
+[typstyle](https://github.com/Enter-tainer/typstyle), pinned via
+`TYPSTYLE_VERSION` in `.github/workflows/ci.yml`.  This version of typstyle has
+**no config file** — options are CLI flags only — and the project uses its
+defaults (line width 80, indent 2), so *the pinned version is the entire style
+contract*.  `.typ` files only: `lang.toml` and the shell scripts are not
+formatted by typstyle and keep their hand-aligned layout.
+
+**You do not need to install anything.**  CI runs `typstyle --check` as a gate
+that reports but never rewrites; if your code needs reformatting the step fails
+and shows you the diff.  If you edit Typst through
+[Tinymist](https://github.com/Myriad-Dreamin/tinymist) in VS Code or Neovim,
+format-on-save already uses typstyle.  Maintainers will happily run the
+formatter over any PR on request.
+
+To check or apply locally, exactly as CI does:
+
+```bash
+typstyle --check lib.typ main.typ examples/*.typ   # CI's gate
+typstyle -i      lib.typ main.typ examples/*.typ   # apply in place
+```
+
 ## Adding or fixing a language
 
 All translations live in **`lang.toml`** — do not add strings to `lib.typ`.
