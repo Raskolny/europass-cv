@@ -418,13 +418,11 @@
     // `above:` here would be silently ignored.  `below` keeps the heading
     // visually grouped with the content that follows.
     block(width: 100%, below: 6pt)[
-      #v(section-gap + 3.4mm)
+      #v(section-gap)
       #it
-      // The title→rule gap read too loose, so 3.4mm is moved out of it and
-      // recovered above the title (the `+ 3.4mm` on the spacer above): the
-      // rule keeps its position while the title sits closer to it.  The
-      // resulting v() is deliberately negative — it pulls the rule up into
-      // the heading's line-box descent.
+      // The title→rule gap read too loose, so 3.4mm is simply removed from it;
+      // the resulting v() is deliberately negative and pulls the rule up into
+      // the heading's line-box descent so it hugs the title.
       #v(3pt - 3.4mm)
       #line(length: 100%, stroke: 0.6pt + eu-blue)
     ]
