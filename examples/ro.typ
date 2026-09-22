@@ -56,7 +56,7 @@
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
 
   signature-place: "București",
-  signature-date: "2025",
+  signature-date: "martie 2025",
   signature-image: "assets/signature-sample.svg",
   signature-alt: l("ro").at("signature-alt"),
 )
