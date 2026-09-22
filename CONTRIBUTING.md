@@ -30,7 +30,7 @@ All translations live in **`lang.toml`** — do not add strings to `lib.typ`.
 1. Edit (or add) the `[<code>]` table in `lang.toml`.  Keep the full key set;
    the required keys are the ones already present for `en` (section headers,
    personal-info labels, CEFR labels, `levels`, gender values, `photo-alt`,
-   `declaration`, …).
+   `signature-alt`, `declaration`, …).
 2. Add a matching example `examples/<code>.typ` with a persona of that
    nationality, using the anonymous placeholder photo.
 3. Run `./build.sh` and `./build-examples.sh`; both must pass.  The build is
@@ -45,7 +45,8 @@ All translations live in **`lang.toml`** — do not add strings to `lib.typ`.
   data table to screen readers.  Only genuinely tabular data (the CEFR grid)
   uses `table` with `table.header()`.
 - Never encode meaning in colour alone: CEFR levels are always real text.
-- Any image needs `alt` text (see `photo-alt`).
+- Any image needs `alt` text (see `photo-alt` for the portrait and
+  `signature-alt` for an uploaded signature).
 - Run `./verify.sh` before opening a PR; it asserts all of the above on the
   rendered PDF.
 

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" role="img" aria-label="Anonymous placeholder handwritten signature">
+  <!-- Anonymous handwritten-signature placeholder for the Europass CV
+       examples.  Deliberately reproduces no real person's signature and
+       carries no identifying features.  Drawn in the template's EU blue so it
+       stays on-palette; a user-supplied signature.png/svg simply replaces it. -->
+  <g fill="none" stroke="#164194" stroke-linecap="round" stroke-linejoin="round">
+    <!-- leading flourish: an initial capital loop -->
+    <path stroke-width="3.4"
+          d="M30 106 C22 76 34 40 57 33 C76 27 83 47 72 66
+             C61 85 40 97 30 96 C22 95 27 84 41 78
+             C62 69 85 72 101 85"/>
+    <!-- middle run of joined lowercase letters -->
+    <path stroke-width="3.0"
+          d="M101 85 C113 93 118 61 129 52 C137 45 141 63 135 79
+             C131 91 139 93 149 82 C159 71 163 56 173 54
+             C183 52 181 73 177 85 C174 94 183 96 193 86
+             C205 74 211 56 223 56 C233 56 231 75 227 87"/>
+    <!-- trailing rise into the final stroke -->
+    <path stroke-width="3.0"
+          d="M227 87 C239 76 247 60 259 58 C273 56 269 79 265 91
+             C263 97 271 99 281 93 C297 83 307 64 321 62
+             C333 60 340 68 338 76"/>
+    <!-- underline swoosh -->
+    <path stroke-width="2.4"
+          d="M44 120 C126 134 252 131 358 108"/>
+  </g>
+</svg>

@@ -98,7 +98,7 @@ Anything you write *below* the `#show:` line is appended as an extra section.
 | Personal info | `name`, `photo`, `photo-alt`, `address`, `postal-code`, `city`, `country`, `phone`, `email`, `website`, `nationality`, `date-of-birth`, `gender` |
 | Sections | `work-experience`, `education` (arrays of `cv-entry`) |
 | Skills | `mother-tongue`, `other-languages`, `digital-skills`, `comm-skills`, `org-skills`, `job-skills`, `other-skills`, `driving-licence` |
-| Declaration | `declaration`, `signature-place`, `signature-date` |
+| Declaration | `declaration`, `signature-place`, `signature-date`, `signature-image`, `signature-alt` |
 
 Every parameter has a default; supply only what you need.
 
@@ -115,6 +115,36 @@ Renders the CEFR table.  `others` is an array of dictionaries with keys
 CEFR code (`A1`–`C2`, case-insensitive).  Levels are emitted as **text** with
 a contrast-safe background shade — never colour-only, so the PDF stays
 accessible.
+
+### Signature
+
+By default the declaration block ends with a thin rule, leaving space to sign
+**on paper after printing**.  To render an uploaded handwritten signature
+instead, point `signature-image:` at it:
+
+```typst
+#show: europass-cv.with(
+  lang: "it",
+  signature-place: "Roma",
+  signature-date: "15 settembre 2025",
+  signature-image: "signature.png",
+  signature-alt: l("it").at("signature-alt"), // "Firma autografa"
+)
+```
+
+Notes:
+
+- The image is fitted to a **40 mm × 16 mm** box with `fit: "contain"`, so the
+  aspect ratio is preserved and a tall scan can never overflow the 55 mm block
+  or push the layout around.
+- `signature-alt:` is **required for PDF/UA-1** whenever `signature-image:` is
+  set — an untagged image fails the `--pdf-standard 1.7,ua-1` build.  Use the
+  localised string (`l(lang).at("signature-alt")`), which is translated for all
+  24 languages, exactly as for `photo-alt:`.
+- The signature block only renders when `signature-place:` or `signature-date:`
+  is non-empty.
+- All 24 examples use the shared anonymous placeholder
+  `assets/signature-sample.svg`, so no real person's signature is depicted.
 
 ---
 
@@ -242,7 +272,7 @@ stay hermetic and reproducible.
 lib.typ               template library (layout + public API; loads lang.toml)
 lang.toml             localisation data — all 24 official EU languages
 main.typ              end-user entry point — fill this in
-assets/               anonymous gender-neutral placeholder portrait (SVG)
+assets/               anonymous placeholder portrait + signature sample (SVG)
 examples/             one CV per language/nationality (+ pdf/ build output)
 fonts/                vendored Open Sans family + Apache-2.0 license
 build.sh              canonical hermetic PDF/UA-1 build (main.typ)

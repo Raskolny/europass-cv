@@ -46,4 +46,6 @@
 
   signature-place: "Warszawa",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("pl").at("signature-alt"),
 )

@@ -10,14 +10,32 @@ Nothing released since `1.0.0`.  That version is submitted to Typst Universe as
 [typst/packages#5905](https://github.com/typst/packages/pull/5905) and is
 **frozen** — no further changes go into it.  Everything below lands in `1.1.0`.
 
-Work in progress lives on feature branches off `main`:
+Work in progress lives on feature branches off `main`.
 
-- `feat/signature-image` — optional `signature-image:` rendering an uploaded
-  handwritten signature in place of the placeholder rule.  **Incomplete**: the
-  commit message records the blocking issues (a missing `alt:` fails the
-  PDF/UA-1 build; the example-asset strategy is undecided).
+### Added
 
-Planned, pending
+- **Optional handwritten signature** — `signature-image:` renders an uploaded
+  signature in place of the paper-signing rule, which stays the `none` default.
+  Closes the `feat/signature-image` WIP by resolving every issue its commit
+  message recorded as blocking:
+  - new `signature-alt:` parameter, localised for **all 24 languages** via a new
+    `signature-alt` key in `lang.toml` (mirrors the existing `photo-alt`
+    pattern), so the image is tagged and the PDF/UA-1 build passes;
+  - the image is fitted to a **40 mm × 16 mm** box with `fit: "contain"`,
+    preserving the aspect ratio and preventing a tall scan from overflowing the
+    55 mm block;
+  - asset strategy settled on **one shared vector**,
+    `assets/signature-sample.svg` (1.4 KB), matching the existing
+    `assets/photo-placeholder.svg` pattern instead of 24 per-example rasters,
+    so the Universe bundle stays small; all 24 examples now exercise it.
+
+  Verified: `main.typ` (default rule path) and all 24 examples compile clean
+  under `--pdf-standard 1.7,ua-1`, with the localised `/Alt` string present in
+  every rendered PDF and the signature measured at 40 × 14 mm undistorted.
+
+### Planned
+
+Pending
 [discussion #2](https://github.com/Raskolny/europass-cv/discussions/2):
 `extra-fields:` for country-specific personal information, and an exported
 `cv-section(..)` for user-defined trailing sections.

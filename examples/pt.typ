@@ -46,4 +46,6 @@
 
   signature-place: "Lisboa",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("pt").at("signature-alt"),
 )

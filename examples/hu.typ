@@ -46,4 +46,6 @@
 
   signature-place: "Budapest",
   signature-date: "2025",
+  signature-image: "assets/signature-sample.svg",
+  signature-alt: l("hu").at("signature-alt"),
 )
