@@ -11,11 +11,15 @@
   author: "Mette Jensen",
 
   name: "Mette Jensen",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("da").at("photo-alt"),
   address: "Example Street 1",
   city: "København",
   phone: "+00 000 000 000",
   email: "da@europass.example",
   nationality: "Dansk",
+  // date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -51,4 +55,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "København",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("da").at("signature-alt"),
 )

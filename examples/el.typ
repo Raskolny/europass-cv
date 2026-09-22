@@ -19,6 +19,7 @@
   email: "el@europass.example",
   nationality: "Ελληνίδα",
   date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(

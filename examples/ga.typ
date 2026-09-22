@@ -11,11 +11,15 @@
   author: "Seán Ó Briain",
 
   name: "Seán Ó Briain",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("ga").at("photo-alt"),
   address: "Example Street 1",
   city: "Baile Átha Cliath",
   phone: "+00 000 000 000",
   email: "ga@europass.example",
   nationality: "Éireannach",
+  // date-of-birth: "01/01/1990",
+  // gender: "male",
 
   work-experience: (
     cv-entry(
@@ -51,4 +55,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Baile Átha Cliath",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("ga").at("signature-alt"),
 )

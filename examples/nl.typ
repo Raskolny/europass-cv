@@ -11,11 +11,14 @@
   author: "Daan de Vries",
 
   name: "Daan de Vries",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("nl").at("photo-alt"),
   address: "Example Street 1",
   city: "Amsterdam",
   phone: "+00 000 000 000",
   email: "nl@europass.example",
   nationality: "Nederlander",
+  // date-of-birth: "01/01/1990",
 
   work-experience: (
     cv-entry(
@@ -51,4 +54,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Amsterdam",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("nl").at("signature-alt"),
 )

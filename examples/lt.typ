@@ -19,6 +19,7 @@
   email: "lt@europass.example",
   nationality: "Lietuvis",
   date-of-birth: "01/01/1990",
+  // gender: "male",
 
   work-experience: (
     cv-entry(
@@ -54,4 +55,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Vilnius",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("lt").at("signature-alt"),
 )

@@ -11,11 +11,15 @@
   author: "Kadri Tamm",
 
   name: "Kadri Tamm",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("et").at("photo-alt"),
   address: "Example Street 1",
   city: "Tallinn",
   phone: "+00 000 000 000",
   email: "et@europass.example",
   nationality: "Eestlane",
+  // date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -51,4 +55,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Tallinn",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("et").at("signature-alt"),
 )

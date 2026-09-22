@@ -11,11 +11,15 @@
   author: "Elsa Andersson",
 
   name: "Elsa Andersson",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("sv").at("photo-alt"),
   address: "Example Street 1",
   city: "Stockholm",
   phone: "+00 000 000 000",
   email: "sv@europass.example",
   nationality: "Svensk",
+  // date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -51,4 +55,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Stockholm",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("sv").at("signature-alt"),
 )

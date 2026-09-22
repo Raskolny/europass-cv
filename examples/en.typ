@@ -11,11 +11,15 @@
   author: "Aoife Murphy",
 
   name: "Aoife Murphy",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("en").at("photo-alt"),
   address: "Example Street 1",
   city: "Dublin",
   phone: "+00 000 000 000",
   email: "en@europass.example",
   nationality: "Irish",
+  // date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -49,4 +53,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Dublin",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("en").at("signature-alt"),
 )

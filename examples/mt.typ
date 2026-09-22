@@ -19,6 +19,7 @@
   email: "mt@europass.example",
   nationality: "Maltija",
   date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -52,4 +53,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Valletta",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("mt").at("signature-alt"),
 )

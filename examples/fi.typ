@@ -11,11 +11,15 @@
   author: "Aino Virtanen",
 
   name: "Aino Virtanen",
+  // photo: "assets/photo-placeholder.svg",
+  // photo-alt: l("fi").at("photo-alt"),
   address: "Example Street 1",
   city: "Helsinki",
   phone: "+00 000 000 000",
   email: "fi@europass.example",
   nationality: "Suomalainen",
+  // date-of-birth: "01/01/1990",
+  // gender: "female",
 
   work-experience: (
     cv-entry(
@@ -49,4 +53,9 @@
     ),
   ),
   digital-skills: [- Python, Docker, Kubernetes, PostgreSQL],
+
+  // signature-place: "Helsinki",
+  // signature-date: "2025",
+  // signature-image: "assets/signature-sample.svg",
+  // signature-alt: l("fi").at("signature-alt"),
 )
