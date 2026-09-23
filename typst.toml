@@ -19,5 +19,6 @@ compiler = "0.15.0"
 # builds only (hermetic, --ignore-system-fonts), while Universe users install
 # Open Sans themselves or pass `font:`.  `social-preview.typ` is the dev-only
 # generator for the GitHub Open-Graph card and `social-preview.png` its
-# dev-only output; neither ships.
-exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "examples/pdf", ".github", "fonts", "social-preview.typ", "social-preview.png"]
+# dev-only output; neither ships.  `sync-universe.sh` is the drift guard that
+# keeps the typst/packages submission in step with the release tag.
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "sync-universe.sh", "examples/pdf", ".github", "fonts", "social-preview.typ", "social-preview.png"]

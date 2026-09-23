@@ -6,7 +6,7 @@ call is `europass-cv`.  The development repository keeps the descriptive name
 
 [![Continuous integration status](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml/badge.svg)](https://github.com/Raskolny/europass-cv/actions/workflows/ci.yml)
 
-![Europass CV rendered with this template](thumbnail.png)
+![Europass CV rendered with this template](https://raw.githubusercontent.com/Raskolny/europass-cv/main/thumbnail.png)
 
 A faithful, **accessible** reproduction of the official European Union
 **Europass CV** format, built for [Typst](https://typst.app) ≥ 0.15.
@@ -17,13 +17,30 @@ A faithful, **accessible** reproduction of the official European Union
 - **CEFR language self-assessment table** (A1–C2) with contrast-safe shading.
 - **GDPR / DPR 445 self-declaration** clause, localised.
 - **Full i18n for all 24 official EU languages.**
-- **PDF/UA-1 (ISO 14289-1) output** — enforced at compile time
-  (`--pdf-standard 1.7,ua-1`) and covered by the automated accessibility
-  checks in `verify.sh`.
-- **Self-contained repository builds**: the whole Open Sans family is vendored
-  in `fonts/`, so repository builds are reproducible and never substitute a
-  locally installed font (the published Universe package excludes the font
-  binaries — see *Fonts & reproducibility* below).
+- **PDF/UA-1 (ISO 14289-1) output** — enforced at compile time in the
+  repository build (`--pdf-standard 1.7,ua-1`) and covered by the automated
+  accessibility checks in `verify.sh`.
+- **Overridable typeface stack** via the `font:` parameter, because Typst
+  Universe packages cannot bundle font binaries — see the note below.
+
+> ### Fonts — read this first
+>
+> Typst Universe packages are **not allowed to ship font binaries**, so this
+> package does **not** include Open Sans.  Before compiling, either
+>
+> 1. **install Open Sans yourself** — download it from
+>    [fonts.google.com/specimen/Open+Sans](https://fonts.google.com/specimen/Open+Sans),
+>    or install your distribution's Open Sans package (the name varies:
+>    `fonts-open-sans`, `open-sans-fonts`, `ttf-open-sans`, …);
+> 2. **or pass any family you already have** via the `font:` parameter — the
+>    only option in environments where you cannot install fonts, such as the
+>    Typst web app.
+>
+> If you do neither, Typst silently substitutes whatever it finds and the
+> output will not match the official Europass typography.  The development
+> repository vendors the complete family in `fonts/` so that *its* builds are
+> hermetic and reproducible; see
+> [Fonts & reproducibility](#fonts--reproducibility).
 
 ---
 
@@ -31,18 +48,51 @@ A faithful, **accessible** reproduction of the official European Union
 
 ### From Typst Universe
 
+Start a new CV from the template:
+
+```bash
+typst init @preview/rasko-europass:1.0.0 my-cv
+cd my-cv
+typst compile main.typ          # -> main.pdf
+```
+
+or import the package into a document you already have:
+
 ```typst
 #import "@preview/rasko-europass:1.0.0": europass-cv, cv-entry
 
 #show: europass-cv.with(lang: "en", name: "Your Name")
 ```
 
-### From this repository
+### From the repository
+
+The repository vendors the Open Sans family and ships the build and
+verification scripts, so its builds are hermetic and PDF/UA-1-validated.
+Clone it:
 
 ```bash
+git clone https://github.com/Raskolny/europass-cv.git
+cd europass-cv
 ./build.sh                 # hermetic, PDF/UA-1 build -> output.pdf
 ./build.sh my-cv.pdf       # custom output name
 ```
+
+or fetch an archive instead of cloning:
+
+```bash
+curl -L -o europass-cv.tar.gz \
+  https://github.com/Raskolny/europass-cv/archive/refs/heads/main.tar.gz
+tar xzf europass-cv.tar.gz
+cd europass-cv-main && ./build.sh
+```
+
+> **Repository-only files.**  `build.sh`, `build-examples.sh`, `verify.sh`, the
+> vendored `fonts/`, `examples/`, `social-preview.*` and the `CONTRIBUTING` /
+> `ROADMAP` / `PUBLISHING` docs live in the
+> [GitHub repository](https://github.com/Raskolny/europass-cv) but are **not**
+> part of the published Universe package.  If you installed the package from
+> Universe, disregard every reference to them further down this page and
+> compile with plain `typst compile` as usual.
 
 `build.sh` is the canonical entry point.  It compiles with:
 
@@ -210,9 +260,16 @@ All four semantic values are translated in `lang.toml` for every language.
 
 ## Examples
 
-`examples/<code>.typ` contains one complete CV per EU language, each with a
-persona of the matching nationality (e.g. `examples/bg.typ` → Георги Иванов,
-Българин).  They double as the i18n regression suite:
+**Browse all 24 examples in the repository →
+[`examples/`](https://github.com/Raskolny/europass-cv/tree/main/examples)**
+(only this README is displayed on Typst Universe, so the links point at
+GitHub).
+
+Each [`examples/<code>.typ`](https://github.com/Raskolny/europass-cv/tree/main/examples)
+is one complete CV in an EU language, with a persona of the matching
+nationality — e.g.
+[`examples/bg.typ`](https://github.com/Raskolny/europass-cv/blob/main/examples/bg.typ)
+→ Георги Иванов, Българин.  They double as the i18n regression suite:
 
 ```bash
 ./build-examples.sh          # compiles all 24 to examples/pdf/ (PDF/UA-1)
@@ -283,6 +340,11 @@ stay hermetic and reproducible.
 ---
 
 ## Repository layout
+
+The development repository
+([github.com/Raskolny/europass-cv](https://github.com/Raskolny/europass-cv))
+holds more than the published package: the vendored fonts, the build and
+verification scripts, CI and the contributor docs are all repository-only.
 
 ```text
 lib.typ               template library (layout + public API; loads lang.toml)

@@ -85,6 +85,38 @@ reachable through the immutable `v1.0.0` tag.
   carries the same comment/prose fixes.  This development repo adopts the
   `template/` structure in 1.1.0 (see ROADMAP.md).
 
+- **Universe review response** — addresses
+  [@elegaanz's review](https://github.com/typst/packages/pull/5905#pullrequestreview-5288070478)
+  of [typst/packages#5905](https://github.com/typst/packages/pull/5905), whose
+  premise is that the bundled README must be read *from Typst Universe*, not
+  from GitHub:
+  - `typst init @preview/rasko-europass:1.0.0` is now the lead quick-start
+    path; the repository route is renamed *From the repository* and gains
+    `git clone` **and** archive-download instructions;
+  - every reference to `build.sh`, `build-examples.sh`, `verify.sh`, `fonts/`,
+    `examples/` and `social-preview.*` is gathered under an explicit
+    **repository-only** call-out, so a package user is never told to run a
+    script that is not in the bundle;
+  - font installation becomes a prominent call-out at the top of the README
+    (Universe packages cannot ship font binaries) rather than a note buried
+    halfway down, and the `1.0.0` "Self-contained fonts" claim above is scoped
+    to repository builds;
+  - `examples/` gains direct GitHub links, since Universe renders only the
+    README;
+  - the duplicate `preview.png` banner is dropped in favour of an absolute link
+    to the repository's `thumbnail.png`.  A template thumbnail is stripped from
+    the archive automatically and *must not be referenced anywhere in the
+    package* (`typst/packages` `docs/manifest.md`), so the banner cannot point
+    at it relatively; an absolute URL renders on Universe **and** in an offline
+    reading of the packaged README.
+
+  The submitted bundle was also found to be **stale**: `lib.typ`, `lang.toml`,
+  `typst.toml`, `README.md`, `CHANGELOG.md`, `thumbnail.png` and all 24
+  `examples/*.typ` had drifted from `main` because the package lives in a fork
+  of `typst/packages` and was copied across by hand.  It is resynchronised, and
+  `sync-universe.sh` now performs the copy and reports drift so this cannot
+  silently recur.
+
 ### Planned
 
 Pending
@@ -117,9 +149,12 @@ optionally outlining H3 entry titles for nested bookmarks).
   document outline; presentational layout tagged as `Div` (never a bogus data
   table); CEFR grid tagged `Table/THead/TH/TD`; lists, links and alt text
   tagged; document title/author/language metadata set.
-- **Self-contained fonts**: complete Open Sans family vendored in `fonts/`
-  (Apache-2.0); builds run with `--ignore-system-fonts` so the rendered PDF
-  embeds subsetted fonts and never falls back to local/Base-14 fonts.
+- **Hermetic repository builds**: the development repository vendors the
+  complete Open Sans family in `fonts/` (Apache-2.0) and compiles with
+  `--ignore-system-fonts`, so the rendered PDF embeds subsetted fonts and never
+  falls back to local/Base-14 fonts.  Font binaries cannot ship inside a
+  Universe package — package users install Open Sans themselves or pass `font:`
+  (see the *Overridable typeface stack* entry below).
 - **Verification tooling**: `build.sh` (hermetic PDF/UA-1 build) and
   `verify.sh` (asserts font embedding, no Base-14 fallback, PDF/UA markers,
   outline and tag tree).
