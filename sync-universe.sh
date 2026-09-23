@@ -184,6 +184,37 @@ else
   note "STALE    README.md"; drift=1
 fi
 
+# README links.  The typst/packages linter warns on any GitHub URL that points
+# at the default branch, and it is right to: a reader of the *packaged* README
+# who follows one lands on unreleased code.  Every versioned link must be pinned
+# to this release's tag, so the pin has to be bumped on each release (see
+# PUBLISHING.md §4).  Branch-less URLs — the CI badge, the clone URL, the repo
+# root — are fine and are not reported.
+echo
+echo "==> README link pinning (versioned links must point at $TAG)"
+pin_issues=0
+while IFS= read -r url; do
+  [ -n "$url" ] || continue
+  case "$url" in
+    */main/*|*/main.*|*refs/heads/main*)
+      note "BRANCH   $url"
+      note "         -> default-branch link: the linter warns, and a package user"
+      note "            would fetch unreleased code.  Pin it to $TAG."
+      pin_issues=1; drift=1 ;;
+    */tree/v*|*/blob/v*|*/raw/v*|*refs/tags/v*)
+      case "$url" in
+        *"/$TAG/"*|*"tags/$TAG."*) : ;;
+        *)
+          note "STALEPIN $url"
+          note "         -> pinned to a different release; expected $TAG."
+          pin_issues=1; drift=1 ;;
+      esac ;;
+  esac
+done < <(grep -oE 'https://[^)" )]*' README.md | sort -u)
+if [ "$pin_issues" -eq 0 ]; then
+  note "ok       every versioned link is pinned to $TAG"
+fi
+
 # CHANGELOG: bundle = repo minus the [Unreleased] section.
 tmp_changelog=$(mktemp)
 trap 'rm -f "$tmp_changelog"' EXIT

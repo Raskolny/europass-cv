@@ -130,6 +130,12 @@ the link later forces a pointless `1.0.1` bump.
    fonts (Apache-2.0, documented in `fonts/README.md` and `NOTICE.md`; the font
    binaries themselves are excluded from the bundle), the thumbnail, the README
    `@preview` usage snippet, and that the compiler floor (`0.15.0`) is correct.
+6. The PR also runs an automated package check that reports errors and warnings.
+   Warnings are advisory — the bot says the package "can still be accepted even
+   if you prefer not to fix them" — but they are cheap to satisfy, and a clean
+   run is a better first impression than an explanation.  The one this
+   submission hit: **GitHub URLs in the README must be pinned to a tag or a
+   commit permalink, not to the default branch.**  See §4.
 
 ## 3. Web-only polish (GitHub UI; no API exists for these)
 
@@ -150,3 +156,12 @@ the link later forces a pointless `1.0.1` bump.
   Never edit an already-published version.
 - The README already imports `@preview/rasko-europass:1.0.0`; bump that snippet
   only when a new major is released.
+- **Bump the README's pinned links to the new tag.**  The banner image, the two
+  `examples/` links and the archive-download URL all point at `v<version>`
+  rather than at a branch, for two reasons: the `typst/packages` linter warns on
+  default-branch URLs, and a reader of the *packaged* README who followed one
+  would land on unreleased code.  Note that a tag archive extracts to
+  `europass-cv-<version>` — GitHub strips the leading `v` — so the `cd` in those
+  instructions moves with the bump.  `sync-universe.sh` reports both a
+  branch link and a stale pin as drift, so a forgotten bump cannot pass
+  silently.

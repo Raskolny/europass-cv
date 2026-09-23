@@ -53,6 +53,16 @@ reachable through the immutable `v1.0.0` tag.
 
 ### Changed
 
+- **README links pinned to the release tag.**  The automated `typst/packages`
+  check on #5905 reported four warnings, all of one kind and all introduced by
+  the review-response commit: GitHub URLs pointing at the default branch (the
+  banner image, two `examples/` links and one file link).  They now point at
+  `v1.0.0`.  So does the archive-download instruction, which the linter did
+  *not* flag but which carried the same defect with more consequence — it told a
+  reader of the packaged 1.0.0 README to download `main`, that is, unreleased
+  1.1.0 code.  `sync-universe.sh` gained a link-pinning check that reports both
+  a branch link and a stale pin as drift, so the per-release bump documented in
+  `PUBLISHING.md` §4 cannot be forgotten silently.
 - **Roadmap corrected against observed evidence.**  `1.2.0` no longer targets an
   *ELM subset*: the CV document model is `Candidate.xsd` in
   `http://www.europass.eu/1.0` built on HR-XML 3.0, while ELM belongs to the
