@@ -85,6 +85,22 @@ the link later forces a pointless `1.0.1` bump.
      declares a `[template]` table this development manifest deliberately lacks.
      Its shared `[package]` fields are compared and any mismatch is reported.
 
+   **Review hold.**  While a submission PR is awaiting a reviewer's response,
+   create `.universe-review-pending` in the repository root:
+
+   ```bash
+   echo 'HELD: typst/packages#NNNN review in progress.' > .universe-review-pending
+   ```
+
+   `sync-universe.sh` then still *reports* drift but refuses to *write*, so a
+   further push to the PR branch cannot silently invalidate the review and make
+   the reviewer re-read everything.  Development on `main` is unaffected —
+   `ROADMAP.md`, `PUBLISHING.md`, `CONTRIBUTING.md`, the scripts and the
+   `[Unreleased]` section of `CHANGELOG.md` never reach the bundle anyway.
+   Delete the marker once the review is resolved; `--force` overrides it
+   deliberately if there is a reason to update the PR mid-review (for example,
+   the reviewer asks for another change).
+
    The submission is a **template package**: `main.typ` lives at
    `template/main.typ` and the manifest declares
 

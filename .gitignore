@@ -18,3 +18,10 @@ examples/pdf/
 
 # Local package cache used to resolve @preview imports in-repo
 .pkgcache/
+
+# Captures of the official Europass portal.  A .har contains session cookies,
+# auth tokens and whatever was typed into the form; the XML extracted from a
+# downloaded CV contains real personal data.  None of it is ever committable.
+# A deliberately sanitised sample needs `git add -f`.
+*.har
+research/*.xml

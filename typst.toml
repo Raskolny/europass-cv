@@ -20,5 +20,8 @@ compiler = "0.15.0"
 # Open Sans themselves or pass `font:`.  `social-preview.typ` is the dev-only
 # generator for the GitHub Open-Graph card and `social-preview.png` its
 # dev-only output; neither ships.  `sync-universe.sh` is the drift guard that
-# keeps the typst/packages submission in step with the release tag.
-exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "sync-universe.sh", "examples/pdf", ".github", "fonts", "social-preview.typ", "social-preview.png"]
+# keeps the typst/packages submission in step with the release tag, and
+# `.universe-review-pending` is the marker that holds it while a review is open.
+# `research/` holds engineering notes about the interchange format; nothing in
+# it is needed to typeset a CV.
+exclude = ["output.pdf", "build.sh", "build-examples.sh", "verify.sh", "sync-universe.sh", ".universe-review-pending", "examples/pdf", ".github", "fonts", "social-preview.typ", "social-preview.png", "research"]

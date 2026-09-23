@@ -1,0 +1,17 @@
+HELD: typst/packages#5905 review in progress.
+
+@elegaanz reviewed the rasko-europass 1.0.0 submission on 2026-09-23 and the
+four points she raised were addressed in Raskolny/packages@34746f45, with a
+reply at pull/5905#issuecomment-5792440600.
+
+Until she responds, the submitted bundle must stay exactly as she last saw it.
+Pushing further commits to the PR branch would silently invalidate her review
+and make her re-read the whole submission.
+
+This hold blocks ONLY `sync-universe.sh` from writing into the fork.
+Development on `main` is unaffected — ROADMAP.md, CHANGELOG.md's [Unreleased]
+section, research notes and 1.1.0 work all proceed normally, and none of those
+files reach the bundle anyway (see the NEVER list in sync-universe.sh).
+
+To lift:      rm .universe-review-pending
+To override:  ./sync-universe.sh <fork> --force

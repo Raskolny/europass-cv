@@ -55,16 +55,37 @@
 #    ./sync-universe.sh <packages-fork-dir>            # report, then sync
 #    ./sync-universe.sh <packages-fork-dir> --check    # report only; exit 1 on
 #                                                      # drift (CI-friendly)
+#    ./sync-universe.sh <packages-fork-dir> --force    # sync even while a
+#                                                      # review hold is active
+#
+#  THE REVIEW HOLD
+#
+#  If `.universe-review-pending` exists in the repository root, the sync reports
+#  drift as usual but refuses to write.  While a typst/packages review is open,
+#  the submitted bundle must stay exactly as the reviewer last saw it: pushing
+#  new commits to the PR branch silently invalidates their review and makes them
+#  re-read everything.  Development on `main` is unaffected -- only the copy
+#  into the fork is held.  Delete the marker once the review is resolved, or
+#  pass --force to override deliberately.
 # =============================================================================
 set -euo pipefail
 cd "$(dirname "$0")"
 
 FORK="${1:-}"
-MODE="${2:-sync}"
+shift || true
+MODE="sync"
+FORCE=0
+for arg in "$@"; do
+  case "$arg" in
+    --check) MODE="--check" ;;
+    --force) FORCE=1 ;;
+    *) echo "error: unknown option: $arg" >&2; exit 2 ;;
+  esac
+done
 
 if [ -z "$FORK" ]; then
   cat >&2 <<'EOF'
-usage: ./sync-universe.sh <packages-fork-dir> [--check]
+usage: ./sync-universe.sh <packages-fork-dir> [--check] [--force]
 
   <packages-fork-dir>   a sparse clone of your typst/packages fork:
                           git clone --depth 1 --no-checkout --filter=tree:0 \
@@ -73,9 +94,14 @@ usage: ./sync-universe.sh <packages-fork-dir> [--check]
                           git sparse-checkout init
                           git sparse-checkout set packages/preview/rasko-europass
                           git checkout rasko-europass-1.0.0
+
+  --check               report drift and write nothing; exit 1 on drift
+  --force               sync even though .universe-review-pending is present
 EOF
   exit 2
 fi
+
+HOLD_MARKER=".universe-review-pending"
 
 NAME=$(sed -n 's/^name *= *"\(.*\)"/\1/p' typst.toml | head -1)
 VERSION=$(sed -n 's/^version *= *"\(.*\)"/\1/p' typst.toml | head -1)
@@ -100,7 +126,8 @@ FROZEN_FILES=(lib.typ lang.toml LICENSE NOTICE.md thumbnail.png)
 FROZEN_DIRS=(assets examples)
 NEVER=(build.sh build-examples.sh verify.sh sync-universe.sh
        social-preview.typ social-preview.png output.pdf .gitignore
-       PUBLISHING.md CONTRIBUTING.md ROADMAP.md preview.png)
+       PUBLISHING.md CONTRIBUTING.md ROADMAP.md preview.png
+       .universe-review-pending)
 NEVER_DIRS=(fonts .github .pkgcache .devin examples/pdf)
 
 drift=0
@@ -242,6 +269,25 @@ fi
 if [ "$MODE" = "--check" ]; then
   echo "==> DRIFT DETECTED (check mode; nothing written)."
   echo "    Run: ./sync-universe.sh $FORK"
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+#  Review hold — refuse to write while a typst/packages review is open.
+# ---------------------------------------------------------------------------
+if [ -f "$HOLD_MARKER" ] && [ "$FORCE" -eq 0 ]; then
+  echo
+  echo "==> HELD: $HOLD_MARKER is present, so nothing will be written."
+  echo "    A typst/packages review is in progress and the submitted bundle must"
+  echo "    stay exactly as the reviewer last saw it.  Development on main is"
+  echo "    unaffected; only the copy into the fork is held."
+  echo
+  echo "    --- $HOLD_MARKER ---"
+  sed 's/^/    /' "$HOLD_MARKER"
+  echo "    ---"
+  echo
+  echo "    Once the review is resolved:  rm $HOLD_MARKER   (then re-run)"
+  echo "    To override deliberately:     ./sync-universe.sh $FORK --force"
   exit 1
 fi
 

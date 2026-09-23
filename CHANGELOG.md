@@ -15,6 +15,21 @@ reachable through the immutable `v1.0.0` tag.
 
 ### Added
 
+- **`research/europass-candidate-format.md`** — an engineering reference for the
+  interchange format behind the `1.2.0` / `1.3.0` work: the `Candidate` root
+  element and its namespaces, the 82-element inventory and its nesting, the
+  `hr:DocumentID` identity constraint, how the payload travels inside the PDF
+  (`/Names → /EmbeddedFiles`, with `/AF` observed in the newer artefact and no
+  PDF/A-3 marking in either), the import endpoint and its 422/410 semantics, and
+  a section-type-to-parameter map showing which official sections have no typed
+  API here.  Deliberately descriptive rather than comparative, and deliberately
+  free of personal data: no HAR, bundle, downloaded CV or extracted XML is
+  committed, and `.gitignore` now blocks `*.har` and `research/*.xml`.
+- **`sync-universe.sh` review hold** — while `.universe-review-pending` exists,
+  the script still reports drift but refuses to write into the fork, so an
+  in-flight `typst/packages` review cannot be silently invalidated by a further
+  push to the PR branch.  `--force` overrides deliberately; deleting the marker
+  lifts the hold.  Development on `main` is unaffected either way.
 - **Optional handwritten signature** — `signature-image:` renders an uploaded
   signature in place of the paper-signing rule, which stays the `none` default.
   Closes the `feat/signature-image` WIP by resolving every issue its commit
@@ -37,6 +52,23 @@ reachable through the immutable `v1.0.0` tag.
   every rendered PDF and the signature measured at 40 × 14 mm undistorted.
 
 ### Changed
+
+- **Roadmap corrected against observed evidence.**  `1.2.0` no longer targets an
+  *ELM subset*: the CV document model is `Candidate.xsd` in
+  `http://www.europass.eu/1.0` built on HR-XML 3.0, while ELM belongs to the
+  European Digital Credentials application profile.  The item also gains a
+  cheaper test path (the importer accepts `.xml` directly, so a sidecar can be
+  exercised without any PDF embedding), and records the constraint that a third
+  party cannot mint `hr:DocumentID schemeAgencyName="EUROPASS"` — importable
+  would not mean official.  In `1.3.0` the `/AF` question is **reopened** (the
+  newer official export does carry it, so exact parity would need a
+  pikepdf/qpdf post-process) while the PDF/A-3 half is closed (not observed in
+  either artefact), and "verify what Europass tooling reads" is marked resolved.
+- **`1.1.0` gained two documentation items** the research made necessary: name
+  which of the four official templates this package reproduces, and add an
+  explicit "what this is not" section to the README.  The `cv-section(..)` item
+  now lists the nine official section types that have no typed parameter here,
+  `publications` first because academic CVs for EU funding need it.
 
 - **typstyle adopted as the declared formatter** for `.typ` sources, pinned in
   CI (`TYPSTYLE_VERSION`).  CI runs `typstyle --check` as a gate that *reports*
